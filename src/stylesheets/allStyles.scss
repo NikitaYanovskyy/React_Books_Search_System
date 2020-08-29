@@ -1,0 +1,47 @@
+$darkPink: #810A58;
+$lightPink: #DA90D7;
+$hoverPink: #b168ae;
+$darkGray: #272727;
+@mixin link_hover{
+    transition: color 0.2s ease-in-out;
+    &:hover{
+        color: $hoverPink;
+    }
+}
+@font-face{
+    src: url('../fonts/Roboto.ttf');
+    font-family: Roboto;
+}
+
+// imports
+@import './header';
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Roboto;
+}
+.side_offset{
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+//Media queries
+@media (min-width: 768px) {
+    .side_offset {
+    width: 750px;
+    padding: 0;
+    }
+}
+@media (min-width: 992px) {
+    .side_offset {
+    width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .side_offset {
+    width: 1170px;
+    }
+}

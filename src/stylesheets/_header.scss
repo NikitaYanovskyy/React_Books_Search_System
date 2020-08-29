@@ -1,0 +1,94 @@
+.navigation_wrapper{
+    background-color: $darkPink; 
+    padding: 1em 0; 
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigation_title{
+    font-weight: normal;
+    flex: 1;
+    font-size: calc(18px + 2vmin);
+    margin-right: 1em;
+    a{
+        color: $lightPink;
+        @include link_hover
+    }
+}
+.navigation_about_button{
+    display: block;
+    position: relative;
+    padding-left: 0.5em;
+    h3,p{
+        transition: color 0.4s ease-in-out;
+    }
+    h3{
+        font-size: calc(10px + 1vmin);
+        color: #fff;
+        margin-top: -4px;
+    }
+    p{
+        font-size: calc(8px + 1vmin);
+        color: $lightPink;
+        margin-bottom: -4px;
+    }
+    .navigation_about_button_line{
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: -4px;
+        width: 4px;
+        background-color: #fff;
+        height: 100%;
+    }
+    &:hover{
+        h3{
+            color: $lightPink;
+        }
+        p{
+            color: #fff;
+        }
+    }
+}
+@keyframes navigation_about_button_mouseover{
+    0%{
+        height: 100%;
+    }
+    50%{
+        height: 50%;
+    }
+    100%{
+        height: 80%;
+    }
+}
+@keyframes navigation_about_button_mouseout{
+    0%{
+        height: 80%;
+    }
+    50%{
+        height: 50%;
+    }
+    100%{
+        height: 100%;
+    }
+}
+
+.navigation_app_description{
+    background-color: $darkGray;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: calc(10px + 1vmin);
+    a{
+        color: $lightPink;
+        @include link_hover
+    }
+}
+
+@media screen and(max-width: 425px){
+    .navigation_title{
+        font-size: calc(14px + 2vmin);
+    }
+}
