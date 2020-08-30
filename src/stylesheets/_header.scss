@@ -1,3 +1,7 @@
+.header{
+    position: relative;
+    z-index: 1;
+}
 .navigation_wrapper{
     background-color: $darkPink; 
     padding: 1em 0; 
@@ -75,7 +79,7 @@
     }
 }
 
-.navigation_app_description{
+.header_app_description{
     background-color: $darkGray;
     color: #fff;
     padding: 20px 0;
@@ -87,6 +91,12 @@
     }
 }
 
+.header_image{
+    display: block;
+    height: 60vh;
+    width: 100%;
+    object-fit: cover;
+}
 @media screen and(max-width: 425px){
     .navigation_title{
         font-size: calc(14px + 2vmin);

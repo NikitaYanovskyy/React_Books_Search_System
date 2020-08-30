@@ -3,6 +3,11 @@
   font-family: Roboto;
 }
 
+.header {
+  position: relative;
+  z-index: 1;
+}
+
 .navigation_wrapper {
   background-color: #810A58;
   padding: 1em 0;
@@ -129,7 +134,7 @@
   }
 }
 
-.navigation_app_description {
+.header_app_description {
   background-color: #272727;
   color: #fff;
   padding: 20px 0;
@@ -137,19 +142,81 @@
   font-size: calc(10px + 1vmin);
 }
 
-.navigation_app_description a {
+.header_app_description a {
   color: #DA90D7;
   -webkit-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
 }
 
-.navigation_app_description a:hover {
+.header_app_description a:hover {
   color: #b168ae;
+}
+
+.header_image {
+  display: block;
+  height: 60vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media screen and (max-width: 425px) {
   .navigation_title {
     font-size: calc(14px + 2vmin);
+  }
+}
+
+.footer_container {
+  background-color: #272727;
+  height: 168px;
+}
+
+.footer_content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  bottom: 20px;
+}
+
+.footer_item {
+  width: 300px;
+}
+
+.footer_item h1 {
+  color: #DA90D7;
+  margin-bottom: 15px;
+}
+
+.footer_item p, .footer_item a {
+  color: #fff;
+}
+
+.footer_item .github_icon {
+  color: #DA90D7;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .footer_container {
+    height: 270px;
+  }
+  .footer_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer_item:last-of-type {
+    margin-top: 30px;
   }
 }
 
@@ -159,6 +226,12 @@
   list-style: none;
   text-decoration: none;
   font-family: Roboto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+p {
+  line-height: 25px;
 }
 
 .side_offset {

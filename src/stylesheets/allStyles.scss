@@ -15,6 +15,7 @@ $darkGray: #272727;
 
 // imports
 @import './header';
+@import './footer';
 
 *{
     margin: 0;
@@ -22,6 +23,10 @@ $darkGray: #272727;
     list-style: none;
     text-decoration: none;
     font-family: Roboto;
+    box-sizing: border-box;
+}
+p{
+    line-height: 25px;
 }
 .side_offset{
     margin: 0 auto;

@@ -1,13 +1,15 @@
 import React from 'react';
 import {createStore} from 'redux'
-import Header from './components/Header/Header';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import "./stylesheets/allStyles.css"
 
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <Header />
-    </div>
+      <Footer />
+    </React.Fragment>
   );
 }
 
