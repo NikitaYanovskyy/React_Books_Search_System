@@ -9,7 +9,7 @@
 }
 
 .navigation_wrapper {
-  background-color: #810A58;
+  background-color: #5a0f0f;
   padding: 1em 0;
 }
 
@@ -35,13 +35,13 @@
 }
 
 .navigation_title a {
-  color: #DA90D7;
+  color: #c75e70;
   -webkit-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
 }
 
 .navigation_title a:hover {
-  color: #b168ae;
+  color: #913f3f;
 }
 
 .navigation_about_button {
@@ -63,7 +63,7 @@
 
 .navigation_about_button p {
   font-size: calc(8px + 1vmin);
-  color: #DA90D7;
+  color: #c75e70;
   margin-bottom: -7px;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .navigation_about_button:hover h3 {
-  color: #DA90D7;
+  color: #c75e70;
 }
 
 .navigation_about_button:hover p {
@@ -137,26 +137,26 @@
 .header_app_description {
   background-color: #272727;
   color: #fff;
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
   font-size: calc(10px + 1vmin);
 }
 
 .header_app_description a {
-  color: #DA90D7;
+  color: #c75e70;
   -webkit-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
 }
 
 .header_app_description a:hover {
-  color: #b168ae;
+  color: #913f3f;
 }
 
 .header_image {
   position: relative;
   z-index: 2;
   display: block;
-  height: 60vh;
+  height: 250px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -196,7 +196,7 @@
 }
 
 .footer_item h1 {
-  color: #DA90D7;
+  color: #c75e70;
   margin-bottom: 15px;
 }
 
@@ -205,7 +205,7 @@
 }
 
 .footer_item .github_icon {
-  color: #DA90D7;
+  color: #c75e70;
   font-size: 18px;
   margin-right: 10px;
 }
@@ -249,14 +249,14 @@
 
 .select_form_bar {
   position: relative;
-  color: #DA90D7;
+  color: #c75e70;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .select_form_bar .select_form_item:first-of-type {
@@ -275,7 +275,7 @@
 
 .select_form_item {
   cursor: pointer;
-  color: #DA90D7;
+  color: #c75e70;
 }
 
 .select_form_item .select_form_item_line {
@@ -284,7 +284,7 @@
   -webkit-transition: width 0.3s ease-in-out;
   transition: width 0.3s ease-in-out;
   width: 0;
-  background-color: #DA90D7;
+  background-color: #c75e70;
 }
 
 .select_form_item:hover .select_form_item_line {
@@ -296,6 +296,7 @@
 }
 
 .short_description_wrapper {
+  z-index: 4;
   position: relative;
   width: 300px;
 }
@@ -310,7 +311,7 @@
 }
 
 .short_description h3, .short_description ul {
-  color: #DA90D7;
+  color: #c75e70;
 }
 
 .short_description h3 {
@@ -490,26 +491,25 @@
 .form form input[type=text] {
   border: none;
   border: 1.5px solid #000;
-  outline: none;
   border-radius: 7px;
   padding: 10px;
   width: 90%;
 }
 
 .form form input[type=text]:focus {
-  border-color: #810A58;
+  border-color: #5a0f0f;
 }
 
 .form form input[type=submit] {
   cursor: pointer;
   margin-left: -5px;
   border: none;
-  border: 2px solid #DA90D7;
+  border: 2px solid #c75e70;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
   padding: 10px;
   color: #fff;
-  background-color: #810A58;
+  background-color: #5a0f0f;
 }
 
 .form_line {
@@ -543,7 +543,7 @@
 
 .booklist_item_title {
   margin-top: 5px;
-  border-left: 3px solid #810A58;
+  border-left: 3px solid #5a0f0f;
   padding-left: 5px;
 }
 
@@ -555,7 +555,7 @@
 .booklist_item_line {
   border: none;
   height: 1px;
-  background-color: #DA90D7;
+  background-color: #c75e70;
   margin: 15px 0 10px 0;
 }
 
@@ -563,9 +563,52 @@
   font-size: 14px;
 }
 
-@media screen and (max-width: 1200px) {
+.search-alert {
+  position: relative;
+  margin-right: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 200px;
+}
+
+.search-alert:before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#5a0f0f), to(transparent));
+  background: linear-gradient(to right, #5a0f0f, transparent);
+}
+
+.search-alert img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.search-alert h1 {
+  color: #fff;
+  position: relative;
+  z-index: 3;
+  font-size: 32px;
+  font-weight: normal;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 1000px) {
   .form {
     margin: 40px 0;
+  }
+  .search-alert {
+    margin: 0;
   }
 }
 
@@ -594,6 +637,7 @@
   font-family: Roboto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  outline: none;
 }
 
 html {

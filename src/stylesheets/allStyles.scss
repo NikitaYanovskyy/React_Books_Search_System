@@ -1,6 +1,6 @@
-$darkPink: #810A58;
-$lightPink: #DA90D7;
-$hoverPink: #b168ae;
+$darkPink: #5a0f0f;
+$lightPink: #c75e70;
+$hoverPink: #913f3f;
 $darkGray: #272727;
 $lightGray: #F5F5F5;
 
@@ -27,6 +27,7 @@ $lightGray: #F5F5F5;
     text-decoration: none;
     font-family: Roboto;
     box-sizing: border-box;
+    outline: none;
 }
 html{
     font-size: 16px;

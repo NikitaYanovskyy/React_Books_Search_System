@@ -21,7 +21,7 @@
     color: $lightPink;
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    padding: 15px 0;
     .select_form_item:first-of-type{
         margin-right: 20px;
     }
@@ -60,6 +60,7 @@
 
 //Short Description
 .short_description_wrapper{
+    z-index: 4;
     position: relative;
     width: 300px;
 }

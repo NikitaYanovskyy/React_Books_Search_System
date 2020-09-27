@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ShortDescription from './ShortDescription'
 import AdvancedSearch from './AdvancedSearch'
-import backgroundImage from '../../graphycs/images/book-background.jpg'
+import backgroundImage from '../../graphycs/images/book_background.jpg'
 import {Route, NavLink} from 'react-router-dom'
 import SimpleSearchForm from './SimpleSearchForm'
 import {withProvideSearchWithStore} from '../../hocs/withHoc'
