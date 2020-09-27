@@ -31,12 +31,12 @@
     h3{
         font-size: calc(10px + 1vmin);
         color: #fff;
-        margin-top: -4px;
+        margin-top: -6px;
     }
     p{
         font-size: calc(8px + 1vmin);
         color: $lightPink;
-        margin-bottom: -4px;
+        margin-bottom: -7px;
     }
     .navigation_about_button_line{
         position: absolute;
@@ -92,6 +92,8 @@
 }
 
 .header_image{
+    position: relative;
+    z-index: 2;
     display: block;
     height: 60vh;
     width: 100%;
@@ -100,5 +102,10 @@
 @media screen and(max-width: 425px){
     .navigation_title{
         font-size: calc(14px + 2vmin);
+    }
+    .navigation_about_button{
+        h3{
+            margin-top: -4px;
+        }
     }
 }

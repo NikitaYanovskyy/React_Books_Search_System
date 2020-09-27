@@ -2,6 +2,8 @@ $darkPink: #810A58;
 $lightPink: #DA90D7;
 $hoverPink: #b168ae;
 $darkGray: #272727;
+$lightGray: #F5F5F5;
+
 @mixin link_hover{
     transition: color 0.2s ease-in-out;
     &:hover{
@@ -16,37 +18,41 @@ $darkGray: #272727;
 // imports
 @import './header';
 @import './footer';
+@import './search';
+@import './searchForm&Results';
 
 *{
     margin: 0;
     padding: 0;
-    list-style: none;
     text-decoration: none;
     font-family: Roboto;
     box-sizing: border-box;
+}
+html{
+    font-size: 16px;
 }
 p{
     line-height: 25px;
 }
 .side_offset{
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 0 1rem;
 }
 
 //Media queries
 @media (min-width: 768px) {
     .side_offset {
-    width: 750px;
-    padding: 0;
+        width: 750px;
+        padding: 0;
     }
 }
-@media (min-width: 992px) {
+@media (min-width: 1000px) {
     .side_offset {
-    width: 970px;
+        width: 970px;
     }
 }
 @media (min-width: 1200px) {
     .side_offset {
-    width: 1170px;
+        width: 1170px;
     }
 }
