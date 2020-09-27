@@ -58,7 +58,7 @@ const Booklist = (props) =>{
                         //Set book category
                         let bookCategory;
                         let bookCategoryStyle = {
-                            color: '#810A58'
+                            color: '#5a0f0f'
                         };
                         if(item.volumeInfo.hasOwnProperty('categories')){
                             bookCategory = item.volumeInfo.categories
@@ -81,7 +81,7 @@ const Booklist = (props) =>{
                             <div key={item.id} className="booklist_item_wrapper">
                                 <div className="booklist_item">
                                     <strong style={bookCategoryStyle} className="booklist_item_category">{bookCategory}</strong>
-                                    <img src={bookPhoto} alt=""/>
+                                    <img className="booklist_item_image" src={bookPhoto} alt=""/>
                                     <h4 className="booklist_item_title">{bookTitle}</h4>
                                     <h5 className="booklist_item_authors">{item.volumeInfo.authors}</h5>
                                     <hr className="booklist_item_line"/>

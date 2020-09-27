@@ -541,6 +541,10 @@
   display: block;
 }
 
+.booklist_item_image {
+  border: 2px solid #5a0f0f;
+}
+
 .booklist_item_title {
   margin-top: 5px;
   border-left: 3px solid #5a0f0f;
