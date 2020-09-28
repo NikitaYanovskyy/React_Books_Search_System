@@ -1,25 +1,13 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React, {useEffect} from 'react'
 import bookMissingPhoto from '../../graphycs/images/book_photo_missing_small.jpg'
-import {BooksFirstVisit, BooksUnfoundAlert} from './BooklistResultAlerts'
-
-const mapStateToProps = (state) =>{
-    return {
-        books: state.searchBranch.books,
-        booksTotalItems: state.searchBranch.booksTotalItems
-    }
-}
-const mapDispatchToProps = (dispatch) =>{
-    return {}
-}
+import {BooksFirstVisitContainer, BooksUnfoundAlertContainer} from './BooklistResultAlertsContainer'
+import BookslistLoader from '../Loader/BookslistLoader'
 
 const Booklist = (props) =>{
-    if(props.booksTotalItems === -1){
-        return <BooksFirstVisit />
-    }
-    if (props.booksTotalItems === 0){
-        return <BooksUnfoundAlert />
-    }else{
+    if(props.isBooklistLoaderVisible) return < BookslistLoader /> 
+    if(props.booksTotalItems === -1) return < BooksFirstVisitContainer/> 
+    if (props.booksTotalItems === 0) return < BooksUnfoundAlertContainer/> 
+    else{
         return(
             <React.Fragment>
                 <div className="booklist_container">
@@ -93,10 +81,8 @@ const Booklist = (props) =>{
                 </div>
             </React.Fragment>
         )
-    }
-    
+    } 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Booklist)
-
+export default Booklist
 

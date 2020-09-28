@@ -1,14 +1,20 @@
 import searchAPI from '../api/SearchAPI'
-import {SimpleGetBooksAC} from '../reducers/SearchReducer'
-import {SimpleGetBooksTotalItemsAC} from '../reducers/SearchReducer'
+import {SimpleGetBooksAC, GetBooksTotalItemsAC, SetBooksLoaderAC} from '../reducers/SearchReducer'
 
 export const getBooksThunk = (title) =>{
     return async (dispatch) => {
 
+        //Show Loader
+        dispatch(SetBooksLoaderAC(true))
         let responce = await searchAPI.getBooksByTitle(title)
+        
+        //Hide Loader
+        dispatch(SetBooksLoaderAC(false))
 
-        dispatch(SimpleGetBooksTotalItemsAC(responce.data.totalItems))
-
+        //Get amount of books
+        dispatch(GetBooksTotalItemsAC(responce.data.totalItems))
+        
+        // Get booklist array
         dispatch(SimpleGetBooksAC(responce.data.items))
     }
 }

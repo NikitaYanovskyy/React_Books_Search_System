@@ -5,7 +5,7 @@ import backgroundImage from '../../graphycs/images/book_background.jpg'
 import {Route, NavLink} from 'react-router-dom'
 import SimpleSearchForm from './SimpleSearchForm'
 import {withProvideSearchWithStore} from '../../hocs/withHoc'
-import Booklist from './Booklist'
+import BooklistContainer from './BooklistContainer'
 const SearchWrapper = () =>{
     const shortDescriptionRef = React.useRef(null)
 
@@ -47,7 +47,7 @@ const SearchWrapper = () =>{
                         <Route exact path='/React_Books_Search_System' component={withProvideSearchWithStore(SimpleSearchForm)} />
                         <Route path='/React_Books_Search_System/advanced' component={withProvideSearchWithStore(AdvancedSearch)}/>
 
-                        <Booklist />
+                        <BooklistContainer />
                     </div>
 
                     <ShortDescription 
