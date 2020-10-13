@@ -1,5 +1,4 @@
-import {BooksFirstVisit, BooksUnfoundAlert} from './BooklistResultAlerts'
+import BooklistResultAlert from './BooklistResultAlert'
 import {withProvideBooksLoaderState} from '../../hocs/withHoc'
 
-export const BooksFirstVisitContainer = withProvideBooksLoaderState(BooksFirstVisit)
-export const BooksUnfoundAlertContainer = withProvideBooksLoaderState(BooksUnfoundAlert)
+export const BooklistResultAlertContainer = withProvideBooksLoaderState(BooklistResultAlert)

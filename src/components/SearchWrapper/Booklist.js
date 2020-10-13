@@ -1,12 +1,15 @@
 import React, {useEffect} from 'react'
 import bookMissingPhoto from '../../graphycs/images/book_photo_missing_small.jpg'
-import {BooksFirstVisitContainer, BooksUnfoundAlertContainer} from './BooklistResultAlertsContainer'
 import BookslistLoader from '../Loader/BookslistLoader'
 
+import {BooklistResultAlertContainer} from './BooklistResultAlertsContainer'
+import noResults from '../../graphycs/images/noResults.jpg'
+import firstVisit from '../../graphycs/images/firstVisit.jpg'
+
 const Booklist = (props) =>{
-    if(props.isBooklistLoaderVisible) return < BookslistLoader /> 
-    if(props.booksTotalItems === -1) return < BooksFirstVisitContainer/> 
-    if (props.booksTotalItems === 0) return < BooksUnfoundAlertContainer/> 
+    if(props.isBooklistLoaderVisible) return <BookslistLoader /> 
+    if(props.booksTotalItems === -1) return <BooklistResultAlertContainer image={firstVisit} text={'Start searching!'}/> 
+    if (props.booksTotalItems === 0) return <BooklistResultAlertContainer image={noResults} text={'No results'}/> 
     else{
         return(
             <React.Fragment>
