@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ShortDescription from './ShortDescription'
 import AdvancedSearch from './AdvancedSearch'
 import backgroundImage from '../../graphycs/images/book_background.jpg'
@@ -21,15 +21,13 @@ const SearchWrapper = () =>{
             <img className='header_image' src={backgroundImage}/>
             <div className="search_section_wrapper">
                 <div className="search_section side_offset">
-
                     <div className="search">
-
                         <div className='select_form_bar'>
-                            <NavLink exact className='select_form_item' activeClassName='select_form_item_active' to='/React_Books_Search_System'>
+                            <NavLink exact className='select_form_item' activeClassName='select_form_item_active' to='/find'>
                                 <p>Simple</p>
                                 <div className='select_form_item_line'></div>
                             </NavLink>
-                            <NavLink className='select_form_item' activeClassName='select_form_item_active' to='/React_Books_Search_System/advanced'>
+                            <NavLink className='select_form_item' activeClassName='select_form_item_active' to='/find/advanced'>
                                 <p>Advanced</p>
                                 <div className='select_form_item_line'></div>
                             </NavLink>
@@ -43,10 +41,9 @@ const SearchWrapper = () =>{
                             {/*Absolute background*/}
                             <div className="select_form_bar_background"></div>
                         </div>
-
-                        <Route exact path='/React_Books_Search_System' component={withProvideSearchWithStore(SimpleSearchForm)} />
-                        <Route path='/React_Books_Search_System/advanced' component={withProvideSearchWithStore(AdvancedSearch)}/>
-
+                        <Route exact path='/find' component={withProvideSearchWithStore(SimpleSearchForm)} />
+                        <Route path='/find/advanced' component={withProvideSearchWithStore(AdvancedSearch)}/>
+                        
                         <BooklistContainer />
                     </div>
 

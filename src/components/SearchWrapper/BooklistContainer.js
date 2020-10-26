@@ -1,6 +1,8 @@
 import {connect} from 'react-redux'
 import Booklist from './Booklist'
 import {SetBooksLoaderAC} from '../../reducers/SearchReducer'
+import { withRouter } from 'react-router-dom'
+import {compose} from 'redux'
 
 const mapStateToProps = (state) =>{
     return {
@@ -10,6 +12,9 @@ const mapStateToProps = (state) =>{
     }
 }
 
-export default connect(mapStateToProps, {
-    toggleLoader: SetBooksLoaderAC
-})(Booklist)
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {
+        SetBooksLoader: SetBooksLoaderAC
+    })
+)(Booklist)

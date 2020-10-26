@@ -4,15 +4,14 @@ const initailState = {
     books: [],
     booksTotalItems: -1,
     isBooklistLoaderVisible: false,
-    isBooklistImageLoaded: false
+    prevTitle: "@#!@$!@$@!#$"
 }
 
 //Actions
 export const SimpleGetBooksAC = (books) => ({type: 'SIMPLE_GET_BOOKS', books})
 export const GetBooksTotalItemsAC = (totalItems) => ({type: "GET_BOOKS_TOTAL_ITEMS", totalItems})
 export const SetBooksLoaderAC = (isVisible) => ({type: "SET_BOOKS_LOADER", isVisible})
-export const SetBooklistAlertImageAC = (isImageLoaded) => ({type: "SET_BOOKLIST_ALERT_IMAGE", isImageLoaded})
-
+export const SetPrevTitleAC = (newTitle) => ({type: "SET_PREV_TITLE", newTitle})
 //Reducer
 const SearchReducer = (state = initailState, action) =>{
     switch(action.type){
@@ -31,10 +30,10 @@ const SearchReducer = (state = initailState, action) =>{
                 ...state,
                 isBooklistLoaderVisible: action.isVisible
             }
-        case "SET_BOOKLIST_ALERT_IMAGE":
+        case "SET_PREV_TITLE":
             return{
                 ...state,
-                isBooklistImageLoaded: action.isImageLoaded
+                prevTitle: action.newTitle
             }
         default:
             return {...state};

@@ -1,0 +1,105 @@
+$blockWidth: 25px;
+$transformValue: 20px;
+.loader{
+    position: relative;
+    transform: translate(calc(50% - 20px), 50px);
+    div{
+        position: absolute;
+        width: $blockWidth;
+        height: $blockWidth;
+        background-color: $darkPink;
+    }
+    div:nth-child(1){
+        transform: translate(-$transformValue, -$transformValue);
+        animation: 2s animateBlock1 ease-in-out infinite;
+    }
+    div:nth-child(2){
+        transform: translate($transformValue, -$transformValue);
+        animation: 2s animateBlock2 ease-in-out infinite;
+    }
+    div:nth-child(3){
+        transform: translate($transformValue, $transformValue);
+        animation: 2s animateBlock3 ease-in-out infinite;
+    }
+    div:nth-child(4){
+        transform: translate(-$transformValue, $transformValue);
+        animation: 2s animateBlock4 ease-in-out infinite;
+
+    }
+}
+
+@keyframes animateBlock1{
+    0%{
+        transform: translate(-$transformValue, -$transformValue);   
+    }
+    20%{
+        transform: translate($transformValue, -$transformValue);
+    }
+    50%{
+        transform: translate($transformValue, $transformValue); 
+    }
+    75%{
+        transform: translate(-$transformValue, $transformValue);
+    }
+    100%{
+        transform: translate(-$transformValue, -$transformValue);   
+    }
+}
+@keyframes animateBlock2{
+    0%{
+        transform: translate($transformValue, -$transformValue);   
+    }
+    20%{
+        transform: translate($transformValue, $transformValue);
+    }
+    50%{
+        transform: translate(-$transformValue, $transformValue); 
+    }
+    75%{
+        transform: translate(-$transformValue, -$transformValue);
+    }
+    100%{
+        transform: translate($transformValue, -$transformValue);   
+    }
+}
+@keyframes animateBlock3{
+    0%{
+        transform: translate($transformValue, $transformValue);   
+    }
+    20%{
+        transform: translate(-$transformValue, $transformValue);
+    }
+    50%{
+        transform: translate(-$transformValue, -$transformValue); 
+    }
+    75%{
+        transform: translate($transformValue, -$transformValue);
+    }
+    100%{
+        transform: translate($transformValue, $transformValue);   
+    }
+}
+@keyframes animateBlock4{
+    0%{
+        transform: translate(-$transformValue, $transformValue);   
+    }
+    20%{
+        transform: translate(-$transformValue, -$transformValue);
+    }
+    50%{
+        transform: translate($transformValue, -$transformValue); 
+    }
+    75%{
+        transform: translate($transformValue, $transformValue);
+    }
+    100%{
+        transform: translate(-$transformValue, $transformValue);   
+    }
+}
+
+
+
+// Empty Image Loader
+.empty_image_loader{
+    background-color: $lightPink;
+}

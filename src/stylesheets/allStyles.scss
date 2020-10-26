@@ -1,6 +1,7 @@
 $darkPink: #5a0f0f;
 $lightPink: #c75e70;
 $hoverPink: #913f3f;
+$extraLightPink: #fff1f3;
 $darkGray: #272727;
 $lightGray: #F5F5F5;
 
@@ -20,6 +21,8 @@ $lightGray: #F5F5F5;
 @import './footer';
 @import './search';
 @import './searchForm&Results';
+@import './loaders';
+@import './singleBook';
 
 *{
     margin: 0;
@@ -29,6 +32,17 @@ $lightGray: #F5F5F5;
     box-sizing: border-box;
     outline: none;
 }
+*::selection{
+    background: $lightPink;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    box-shadow: 0 0 0 30px $extraLightPink inset !important;
+    -webkit-text-fill-color: $darkGray !important;
+}
+
 html{
     font-size: 16px;
 }

@@ -2,7 +2,12 @@ import React from 'react'
 
 const BooklistLoader = (props) =>{
     return(
-        <p style={{display: typeof props.style === 'undefined' ? 'block' : props.style.display}}>Loading...</p>
+        <div className="loader booklist-loader" style={{display: typeof props.style === 'undefined' ? 'block' : props.style.display}}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     )
 }
 
