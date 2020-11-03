@@ -162,6 +162,34 @@
      object-fit: cover;
 }
 
+.single_book_header_image_wrapper {
+  position: relative;
+  z-index: 2;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.single_book_header_image_wrapper:before {
+  position: absolute;
+  content: '';
+  width: 120%;
+  height: 120%;
+  top: -40px;
+  left: -40px;
+  background: linear-gradient(45deg, #5a0f0f, #c75e70);
+}
+
+.single_book_header_image {
+  position: absolute;
+  top: -20px;
+  right: -40px;
+  width: calc(100% + 50px);
+  height: 120%;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+
 @media screen and (max-width: 425px) {
   .navigation_title {
     font-size: calc(14px + 2vmin);
@@ -874,25 +902,285 @@
   }
 }
 
-.empty_image_loader {
+.book_card_preloader_bg.regular_text {
+  height: 20px;
+}
+
+.book_card_preloader_bg {
+  position: relative;
+  background: linear-gradient(45deg, #5a0f0f, #c75e70);
+  z-index: 1;
+}
+
+.book_card_preloader_bg:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #c75e70, #5a0f0f);
+  opacity: 0;
+  z-index: -1;
+  -webkit-animation: 1s preloader_bg ease-in-out infinite;
+          animation: 1s preloader_bg ease-in-out infinite;
+}
+
+@-webkit-keyframes preloader_bg {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes preloader_bg {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.book_card_text_wrapper {
+  margin-left: 30px;
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 330px);
+}
+
+.book_card_text_wrapper .author {
+  margin: 20px 0 10px 0;
+}
+
+.book_card_title_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 4px solid #5a0f0f;
+  padding-left: 10px;
+}
+
+.book_card_title_wrapper .title.book_card_preloader_bg {
+  height: 50px;
+  max-width: 400px;
+  width: 400px;
+}
+
+.book_card_preloader_bg.fixed_width {
+  width: 150px;
+}
+
+.book_card_separating_line {
+  height: 3px;
   background-color: #c75e70;
 }
 
-.single_book_header_image_wrapper {
-  position: relative;
-  height: 300px;
-  width: 100%;
-  overflow: hidden;
+.book_card_text_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.single_book_header_image {
+.book_card_item_margin {
+  margin: 15px 0;
+}
+
+.book_card_preloader_bg.category {
+  width: 200px;
+}
+
+.book_card_preloader_bg.language {
+  width: 95px;
+}
+
+.book_card_preloader_bg.maturity_rating {
+  width: 150px;
+}
+
+.book_card_preloader_bg.pages {
+  width: 90px;
+}
+
+.book_card_preloader_bg.price_button {
+  height: 40px;
+  width: 80px;
+}
+
+.margin_left {
+  margin-left: auto;
+  text-align: right;
+}
+
+.book_card_preloader_bg.country {
+  width: 80px;
+}
+
+.book_card_preloader_bg.publisher {
+  width: 170px;
+}
+
+.book_card_preloader_bg.published_date {
+  width: 160px;
+}
+
+@media screen and (max-width: 700px) {
+  .single_book_image_wrapper {
+    margin-bottom: 20px;
+  }
+  .book_card_text_wrapper {
+    margin-left: 0;
+    display: block;
+    width: 100%;
+  }
+  .book_card_preloader_bg.category {
+    width: 100px;
+  }
+  .book_card_preloader_bg.language {
+    width: 45px;
+  }
+  .book_card_preloader_bg.maturity_rating {
+    width: 75px;
+  }
+  .book_card_preloader_bg.pages {
+    width: 45px;
+  }
+  .book_card_preloader_bg.price_button {
+    height: 40px;
+    width: 70px;
+  }
+  .book_card_preloader_bg.country {
+    width: 40px;
+  }
+  .book_card_preloader_bg.publisher {
+    width: 100px;
+  }
+  .book_card_preloader_bg.published_date {
+    width: 80px;
+  }
+}
+
+.book_content_wrapper {
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.single_book_back_button {
+  margin-bottom: 20px;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: #5a0f0f;
+  color: #fff;
+  border: 0;
+  padding: 8px 10px;
+}
+
+.single_book_back_button i {
+  margin-right: 5px;
+}
+
+.single_book_image_wrapper {
+  max-width: 300px;
+  width: 300px;
+  height: 450px;
+  position: relative;
+  display: inline-block;
+}
+
+.single_book_image_wrapper .single_book_image {
   position: absolute;
-  top: -20px;
-  right: -20px;
-  width: calc(100% + 50px);
-  height: 120%;
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+  width: 100%;
+  height: 100%;
+}
+
+.single_book_image_wrapper img {
+  position: relative;
+  z-index: 1;
+  border: 2px solid #5a0f0f;
+}
+
+.book_card_item_margin strong {
+  color: #5a0f0f;
+}
+
+.price_button {
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background-color: #c75e70;
+  padding: 12px 10px;
+}
+
+@media screen and (max-width: 750px) {
+  .single_book_image_wrapper {
+    display: block;
+    width: unset;
+  }
+  .book_content_wrapper {
+    padding: 70px 0;
+  }
+}
+
+.page_not_found_wrapper h1 {
+  font-size: 128px;
+  color: #5a0f0f;
+}
+
+.page_not_found_wrapper h2 {
+  margin-top: -30px;
+  font-size: 50px;
+}
+
+.page_not_found_wrapper .book_card_preloader_bg {
+  height: 400px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.page_not_found_wrapper .book_card_preloader_bg img {
+  top: -2px;
+  left: -2px;
+  position: absolute;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.page_not_found_wrapper .page_not_found {
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+  padding-bottom: 35px;
+}
+
+@media screen and (max-width: 500px) {
+  .page_not_found_wrapper h1 {
+    font-size: 100px;
+    color: #5a0f0f;
+  }
+  .page_not_found_wrapper h2 {
+    margin-top: -30px;
+    font-size: 40px;
+  }
 }
 
 * {
@@ -933,6 +1221,15 @@ p {
 .side_offset {
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+button {
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #913f3f;
 }
 
 @media (min-width: 768px) {

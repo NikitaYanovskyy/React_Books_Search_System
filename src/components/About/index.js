@@ -1,10 +1,9 @@
 import React from 'react'
-
+import aboutImage from '../../graphycs/images/about.jpg'
+import PageNotFound from '../NotFound/PageNotFound'
 const About = () =>{
     return(
-        <div>
-            <h1>About</h1>
-        </div>
+        <PageNotFound firstTitle="Good" secondTitle="Very good project" src={aboutImage}/>
     )
 }
 

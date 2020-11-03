@@ -99,6 +99,33 @@
     width: 100%;
     object-fit: cover;
 }
+
+//Header Image
+.single_book_header_image_wrapper{
+    position: relative;
+    z-index: 2;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    &:before{
+        position: absolute;
+        content: '';
+        width: 120%;
+        height: 120%;
+        top: -40px;
+        left: -40px;
+        background: linear-gradient(45deg, $darkPink, $lightPink);
+    }
+}
+.single_book_header_image{
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    width: calc(100% + 50px);
+    height: 120%;
+    filter: blur(10px);
+}
+
 @media screen and(max-width: 425px){
     .navigation_title{
         font-size: calc(14px + 2vmin);

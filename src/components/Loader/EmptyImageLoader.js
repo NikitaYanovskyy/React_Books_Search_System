@@ -2,7 +2,7 @@ import React from 'react'
 
 const EmptyImageLoader = (props) =>{
     return(
-        <div className={"empty_image_loader " + props.style}></div>
+        <div className={"book_card_preloader_bg " + props.primaryStyle}></div>
     )
 }
 

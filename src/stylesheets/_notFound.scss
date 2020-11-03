@@ -1,0 +1,42 @@
+.page_not_found_wrapper{
+    h1{
+        font-size: 128px;
+        color: $darkPink;
+    }
+    h2{
+        margin-top: -30px;
+        font-size: 50px;
+    }
+    .book_card_preloader_bg{
+        height: 400px;
+        width: 100%;
+        margin-top: 10px;
+        img{
+            top: -2px;
+            left: -2px;
+            position: absolute;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            object-fit: cover;
+        }
+    }
+    .page_not_found{
+        position: relative;
+        z-index: 3;
+        background-color: #fff;
+        padding-bottom: 35px;
+    }
+}
+
+@media screen and(max-width: 500px){
+    .page_not_found_wrapper{
+        h1{
+            font-size: 100px;
+            color: $darkPink;
+        }
+        h2{
+            margin-top: -30px;
+            font-size: 40px;
+        }
+    }
+}

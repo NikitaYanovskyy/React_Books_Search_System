@@ -100,6 +100,148 @@ $transformValue: 20px;
 
 
 // Empty Image Loader
-.empty_image_loader{
+.book_card_preloader_bg.regular_text{
+    height: 20px;
+}
+
+// Single book text loader
+
+.book_card_preloader_bg{
+    position: relative;
+    background: linear-gradient(45deg, $darkPink, $lightPink);
+    z-index: 1;
+    &:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(45deg, $lightPink, $darkPink);
+        opacity: 0;
+        z-index: -1;
+        animation: 1s preloader_bg ease-in-out infinite;
+    }
+}
+@keyframes preloader_bg{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+ 
+.book_card_text_wrapper{
+    margin-left: 30px;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 330px);
+    .author{
+        margin: 20px 0 10px 0;
+    }
+}
+.book_card_title_wrapper{
+    display: flex;
+    align-items: center;
+    border-left: 4px solid $darkPink;
+    padding-left: 10px;
+    .title.book_card_preloader_bg{
+        height: 50px;
+        max-width: 400px;
+        width: 400px;
+    }
+}
+
+.book_card_preloader_bg.fixed_width{
+    width: 150px;
+}
+.book_card_separating_line{
+    height: 3px;
     background-color: $lightPink;
+}
+
+// Book content under a separation line
+
+//Left flex side
+.book_card_text_flex{
+    display: flex;
+    justify-content: space-between;
+}
+.book_card_item_margin{
+    margin: 15px 0;
+}
+.book_card_preloader_bg.category{
+    width: 200px;
+}
+.book_card_preloader_bg.language{
+    width: 95px;
+}
+.book_card_preloader_bg.maturity_rating{
+    width: 150px;
+}
+.book_card_preloader_bg.pages{
+    width: 90px;
+}
+.book_card_preloader_bg.price_button{
+    height: 40px;
+    width: 80px;
+}
+
+// Right flex side
+.margin_left{
+    margin-left: auto;
+    text-align: right;
+}
+
+.book_card_preloader_bg.country{
+    width: 80px;
+}
+.book_card_preloader_bg.publisher{
+    width: 170px;
+}
+.book_card_preloader_bg.published_date{
+    width: 160px;
+}
+
+@media screen and(max-width: 700px){
+    .single_book_image_wrapper{
+        margin-bottom: 20px; 
+    }
+    .book_card_text_wrapper{
+        margin-left: 0; 
+        display: block; 
+        width: 100%; 
+    }
+
+    // Fixed width blocks
+    .book_card_preloader_bg.category{
+        width: 100px;
+    }
+    .book_card_preloader_bg.language{
+        width: 45px;
+    }
+    .book_card_preloader_bg.maturity_rating{
+        width: 75px;
+    }
+    .book_card_preloader_bg.pages{
+        width: 45px;
+    }
+    .book_card_preloader_bg.price_button{
+        height: 40px;
+        width: 70px;
+    }
+    
+    .book_card_preloader_bg.country{
+        width: 40px;
+    }
+    .book_card_preloader_bg.publisher{
+        width: 100px;
+    }
+    .book_card_preloader_bg.published_date{
+        width: 80px;
+    }
 }

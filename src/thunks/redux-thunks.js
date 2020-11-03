@@ -6,7 +6,7 @@ export const getBooksThunk = (title) =>{
 
         //Show Loader
         dispatch(SetBooksLoaderAC(true))
-        let responce = await searchAPI.getBooksByTitle(title)
+        let response = await searchAPI.getBooksByTitle(title)
 
         //Hide Loader
         dispatch(SetBooksLoaderAC(false))
@@ -15,9 +15,9 @@ export const getBooksThunk = (title) =>{
         dispatch(SetPrevTitleAC(title))
         
         //Get amount of books
-        dispatch(GetBooksTotalItemsAC(responce.data.totalItems))
+        dispatch(GetBooksTotalItemsAC(response.data.totalItems))
         
         // Get booklist array
-        dispatch(SimpleGetBooksAC(responce.data.items))
+        dispatch(SimpleGetBooksAC(response.data.items))
     }
 }

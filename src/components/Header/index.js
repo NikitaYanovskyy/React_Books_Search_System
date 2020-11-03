@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 const Header = () =>{
     const aboutButtonRef = React.useRef(null)
@@ -8,16 +8,27 @@ const Header = () =>{
     const aboutOnMouseOut = () =>{
         aboutButtonRef.current.childNodes[0].style.animation = 'navigation_about_button_mouseout 0.3s ease-in-out 0s 1 normal forwards'
     }
+    useEffect(()=>{
+        aboutButtonRef.current.addEventListener('mouseover', ()=>{
+            aboutOnMouseOver()
+        })
+        aboutButtonRef.current.addEventListener('mouseout', ()=>{
+            aboutOnMouseOut()
+        })
+        return ()=>{
+            aboutButtonRef.current.removeEventListener(`mouseover`)
+            aboutButtonRef.current.removeEventListener(`mouseout`)
+        }
+    })
     return(
         <div className='header'>
             <div className='navigation_wrapper'>
                 <div className='side_offset navigation'>
-                    <h1 className='navigation_title'><a href="#">Google Books Search</a></h1>
+                    <h1 className='navigation_title'>
+                        <NavLink to="/find">Google Books Search</NavLink>
+                    </h1>
                     <NavLink to='/about'
-                        ref={aboutButtonRef}
-                        onMouseOver={() => aboutOnMouseOver()}
-                        onMouseOut={() => aboutOnMouseOut()}  
-                        href='#' 
+                        ref={aboutButtonRef}                       
                         className='navigation_about_button'
                     >
                         <div className='navigation_about_button_line'></div>

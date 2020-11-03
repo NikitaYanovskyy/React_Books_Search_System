@@ -9,11 +9,9 @@ import noResults from '../../graphycs/images/noResults.jpg'
 import firstVisit from '../../graphycs/images/firstVisit.jpg'
 import {NavLink} from 'react-router-dom'
 
-//Responce processing methods
-import {processImage} from '../../api/responceProcessing'
-import {processCategory} from '../../api/responceProcessing'
-import {processTitle} from '../../api/responceProcessing'
-import {processPrice} from '../../api/responceProcessing'
+//Response processing methods
+import {processImage, processCategory, processTitle, processPrice} from '../../api/responseProcessing'
+
 
 const Booklist = (props) =>{
     if(props.isBooklistLoaderVisible){
@@ -31,20 +29,11 @@ const Booklist = (props) =>{
             <div className="booklist_container">
                 {
                 props.books.map((item)=>{
+                    //Book id
                     let bookId = item.id;
 
                     //Set book price
-                    let bookPriceAmount =  typeof item.saleInfo.listPrice !== `undefined` 
-                    ? item.saleInfo.listPrice.amount 
-                    : ""
-                    let bookPriceCurrencyCode =  typeof item.saleInfo.listPrice !== `undefined` 
-                    ? item.saleInfo.listPrice.currencyCode 
-                    : ""
-                    let bookPrice = processPrice(
-                        item.saleInfo.saleability, 
-                        bookPriceAmount, 
-                        bookPriceCurrencyCode
-                        );
+                    let bookPrice = processPrice(item.saleInfo);
                     
                     //Set book image
                     let bookPhoto = processImage(item.volumeInfo, bookMissingPhoto);

@@ -23,6 +23,7 @@ $lightGray: #F5F5F5;
 @import './searchForm&Results';
 @import './loaders';
 @import './singleBook';
+@import './notFound';
 
 *{
     margin: 0;
@@ -53,7 +54,12 @@ p{
     margin: 0 auto;
     padding: 0 1rem;
 }
-
+button{
+    transition: background-color 0.2s ease-in-out;
+    &:hover{
+        background-color: $hoverPink;
+    }
+}
 //Media queries
 @media (min-width: 768px) {
     .side_offset {
