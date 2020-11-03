@@ -9,15 +9,11 @@ const Header = () =>{
         aboutButtonRef.current.childNodes[0].style.animation = 'navigation_about_button_mouseout 0.3s ease-in-out 0s 1 normal forwards'
     }
     useEffect(()=>{
-        aboutButtonRef.current.addEventListener('mouseover', ()=>{
-            aboutOnMouseOver()
-        })
-        aboutButtonRef.current.addEventListener('mouseout', ()=>{
-            aboutOnMouseOut()
-        })
+        aboutButtonRef.current.addEventListener('mouseover', aboutOnMouseOver)
+        aboutButtonRef.current.addEventListener('mouseout', aboutOnMouseOut)
         return ()=>{
-            aboutButtonRef.current.removeEventListener(`mouseover`)
-            aboutButtonRef.current.removeEventListener(`mouseout`)
+            aboutButtonRef.current.removeEventListener(`mouseover`, aboutOnMouseOver)
+            aboutButtonRef.current.removeEventListener(`mouseout`, aboutOnMouseOut)
         }
     })
     return(

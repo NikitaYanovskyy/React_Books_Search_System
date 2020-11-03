@@ -6,15 +6,13 @@ import {Route, NavLink} from 'react-router-dom'
 import SimpleSearchForm from './SimpleSearchForm'
 import {withProvideSearchWithStore} from '../../hocs/withHoc'
 import BooklistContainer from './BooklistContainer'
-import HeaderImage from '../Header/HeaderImage'
+import HeaderImage from '../Header/HeaderImageBlured'
 
 
 const SearchWrapper = () =>{
     const shortDescriptionRef = React.useRef(null)
-
     const showDescription = () =>{
         shortDescriptionRef.current.style.animation = 'short_description_show 0.3s ease-in-out 0s 1 normal forwards'
-
     }
     const hideDescription = () =>{
         shortDescriptionRef.current.style.animation = 'short_description_hide 0.3s ease-in-out 0s 1 normal forwards'
@@ -22,7 +20,7 @@ const SearchWrapper = () =>{
     return( 
         <React.Fragment>
             <section className='search_container'>
-                <HeaderImage src={backgroundImage}/>
+            <HeaderImage isBlured={false} src={backgroundImage}/>
                 <div className="search_section_wrapper">
                     <div className="search_section side_offset">
                         <div className="search">
