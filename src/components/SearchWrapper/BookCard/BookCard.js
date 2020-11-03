@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {NavLink} from 'react-router-dom'
-
+import {useImage} from '../../../hooks'
 const BookCard = (props) =>{
     const bookCategoryColor = props.bookCategory === 'No category' ? `red` : '#5a0f0f'
     return(
@@ -19,20 +19,14 @@ const BookCard = (props) =>{
 
 
 const BookCardImage = (props) =>{
-    const [isImageLoaded, setIsImageLoaded] = useState(false)
-    const image = new Image()
-    image.src= props.src
-    image.onload = () =>{
-        setIsImageLoaded(true)
-    }  
-
+    const image = useImage(props.src)
+    
     const emptyImageStyles = {
         height: `200px`
-        
     }
 
-    const imageView = isImageLoaded 
-    ? <img className="booklist_item_image" src={props.src}/>
+    const imageView = image.isImageLoaded 
+    ? <img className="booklist_item_image" src={image.src}/>
     : <div className="book_card_preloader_bg" style={{height: emptyImageStyles.height}}></div>
 
     return(

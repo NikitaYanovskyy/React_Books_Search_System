@@ -38,7 +38,7 @@ const Book = (props) =>{
     if(!isResponceSuccessful) return <PageNotFound firstTitle="Book" secondTitle="Is not found" src={notFoundImage}/>
     return(
         <div>
-            <HeaderImage src={imageSrc}/>
+            <HeaderImage isBlured={true} src={imageSrc}/>
             <div className="side_offset">
                 <div className="book_content_wrapper">
                     <button onClick={()=>{history.goBack()}} className="single_book_back_button"><i className="fa fa-arrow-left"></i>Back</button>
