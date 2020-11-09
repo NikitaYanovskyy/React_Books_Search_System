@@ -3,6 +3,7 @@ import Booklist from './Booklist'
 import {SetBooksLoaderAC} from '../../reducers/SearchReducer'
 import { withRouter } from 'react-router-dom'
 import {compose} from 'redux'
+import {withProvideSearchWithStore} from '../../hocs/withHoc'
 
 const mapStateToProps = (state) =>{
     return {
@@ -11,8 +12,8 @@ const mapStateToProps = (state) =>{
         isBooklistLoaderVisible: state.searchBranch.isBooklistLoaderVisible
     }
 }
-
 export default compose(
+    withProvideSearchWithStore,
     withRouter,
     connect(mapStateToProps, {
         SetBooksLoader: SetBooksLoaderAC

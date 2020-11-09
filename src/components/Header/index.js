@@ -21,7 +21,7 @@ const Header = () =>{
             <div className='navigation_wrapper'>
                 <div className='side_offset navigation'>
                     <h1 className='navigation_title'>
-                        <NavLink to="/find">Google Books Search</NavLink>
+                        <NavLink to="/find/simple">Google Books Search</NavLink>
                     </h1>
                     <NavLink to='/about'
                         ref={aboutButtonRef}                       

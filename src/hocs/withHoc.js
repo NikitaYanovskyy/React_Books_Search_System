@@ -1,14 +1,15 @@
 import {connect} from 'react-redux'
-import {getBooksThunk} from '../thunks/redux-thunks'
+import {getBooksThunk, getBooksAdvancedThunk} from '../thunks/redux-thunks'
 import {SetBooksLoaderAC} from '../reducers/SearchReducer'
 
 export const withProvideSearchWithStore = (Component) =>{
     const mapStateToProps = (state) =>{
         return {
-            prevTitle: state.searchBranch.prevTitle
+            prevTitle: state.searchBranch.prevTitle,
+            currentTab: state.searchBranch.currentTab
         }
     }
-    return connect(mapStateToProps,{getBooksThunk})(Component)
+    return connect(mapStateToProps,{getBooksThunk, getBooksAdvancedThunk})(Component)
 }
 
 export const withProvideBooksLoaderState = (Component) =>{

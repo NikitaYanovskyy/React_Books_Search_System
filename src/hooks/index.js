@@ -1,6 +1,7 @@
 import {useState} from 'react'
+import {useLocation} from 'react-router-dom'
 
-export function useImage(src){
+export const useImage=(src)=>{
     const [isImageLoaded,setIsImageLoaded] = useState(false)
     let image = new Image()
     image.src = src
@@ -9,4 +10,8 @@ export function useImage(src){
     }
 
     return {isImageLoaded, src}
+}
+
+export const useQuery = ()=>{
+    return new URLSearchParams(useLocation().search);
 }

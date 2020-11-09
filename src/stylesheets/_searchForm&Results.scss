@@ -6,9 +6,30 @@
         font-weight: normal;
     }
     form{
+        .form-text-input{
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+            label{
+                transition: all 0.3s ease-in-out;
+                position: absolute;
+                z-index: 1;
+                cursor: text;
+            }
+            input[type=text]{
+                border: none;
+                border: 1.5px solid #000;
+                border-radius: 4px;
+                padding: 10px;
+                &:focus{
+                    border-color: $lightPink;
+                }
+            }
+        }
+    }
+    .simple_form{
         position: relative;
         max-width: 500px;
-        display: flex;
         margin-top: 10px;
         .simple_form_spam_error_message{
             position: absolute;
@@ -45,6 +66,39 @@
            
         }
     }  
+    .advanced_form{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 20px 40px;
+        input[type=text]{
+           width: 100%;
+        }
+        button{
+            border: none;
+            background-color: $lightPink;
+            cursor: pointer;
+            grid-row: 3/4;
+            width: 50px;
+            height: 30px;
+            i{
+                color: #fff;
+            }
+            &:hover{
+                background-color: $darkPink;
+            }
+        }
+        .form-checkbox-input{
+            margin-top: 10px;
+            float: left;
+            margin-right: 15px;
+            label{
+                margin-left: 4px;
+                color: rgb(73, 73, 73);
+                font-size: 14px;
+            }
+        }
+    }
 }
 
 

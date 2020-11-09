@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import SearchAPI from '../../api/SearchAPI'
-import 'font-awesome/css/font-awesome.min.css'
+import '../../../node_modules/font-awesome/css/font-awesome.min.css'
 import bookMissingPhoto from '../../graphycs/images/book_photo_missing_small.jpg'
 import notFoundImage from '../../graphycs/images/not-found.jpg'
 import {BookTextContent} from './BookTextContent'

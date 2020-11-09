@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 // A missing photo in case if a book item will have no photo
 import bookMissingPhoto from '../../graphycs/images/book_photo_missing_small.jpg'
 // Loader
@@ -11,7 +11,6 @@ import firstVisit from '../../graphycs/images/firstVisit.jpg'
 import BookCard from './BookCard/BookCard'
 //Response processing methods
 import {processImage, processCategory, processTitle, processPrice} from '../../api/responseProcessing'
-
 
 const Booklist = (props) =>{
     if(props.isBooklistLoaderVisible){
@@ -29,8 +28,6 @@ const Booklist = (props) =>{
             <div className="booklist_container">
                 {
                 props.books.map((item)=>{
-                    //Book id
-
                     return (
                         <div key={item.id} className="booklist_item_wrapper" style={{display: props.isBooklistLoaderVisible ? 'none' : 'block'}}>
                             <BookCard 
@@ -48,7 +45,6 @@ const Booklist = (props) =>{
             </React.Fragment>
         ) 
     } 
-    
 }
 
 export default Booklist
