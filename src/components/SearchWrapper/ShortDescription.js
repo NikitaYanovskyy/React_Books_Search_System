@@ -15,12 +15,10 @@ const ShortDescription = (props) =>{
                 <ul>
                     <li>title</li>
                     <li>author</li>
-                    <li>description</li>
                     <li>category</li>
                     <li>language</li>
                     <li>price and currency</li>
                     <li>image</li>
-                    <li>avarage rating</li>
                     <li>buy link</li>
                 </ul>
                 <p>Simple and advanced search systems are available.</p>

@@ -1,20 +1,25 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 import {useForm} from 'react-hook-form'
 import '../../../node_modules/font-awesome/css/font-awesome.min.css'
 import {useHistory} from 'react-router-dom'
 
 const SimpleSearchForm = (props) =>{
-    const {register, handleSubmit, errors} = useForm()
+    const {register, handleSubmit, errors, setValue} = useForm()
     const history = useHistory()
     const onSubmit = data => {history.push(`/find/simple?q=${data.title}`)} 
-    const isToggled = (value) => value !== props.prevTitle
+    const isToggled = (value) => value !== props.savedTitle
     
+    useEffect(()=>{
+        if(props.savedTitle !== ""){
+            setValue("title", props.savedTitle)
+        }
+    })
     return( 
         <div className="form" >
             <h1>Simple search</h1> 
             <p>Find book by it’s name or particular word in the name</p> 
             <form className="simple_form" onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" name="title" placeholder="Find by book title" ref={register({
+                <input type="text" name="title" placeholder="Find book by title" ref={register({
                     validate: isToggled
                 })}/>
                 <input type="submit" value="Find" ref={register}/>

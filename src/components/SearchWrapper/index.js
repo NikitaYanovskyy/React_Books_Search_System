@@ -5,18 +5,26 @@ import backgroundImage from '../../graphycs/images/book_background.jpg'
 import {Route} from 'react-router-dom'
 import SearchNavbarContainer from './SearchNavbar/SearchNavbarContainer'
 import SimpleSearchForm from './SimpleSearchForm'
-import {withProvideSearchWithStore} from '../../hocs/withHoc'
+import {withProvideSearchWithStore, withProvideAdvancedSearchWithStore} from '../../hocs/withHoc'
 import BooklistContainer from './BooklistContainer'
 import HeaderImage from '../Header/HeaderImageBlured'
 import {useQuery} from '../../hooks/index'
+import {setQueryParam} from '../../api/responseProcessing'
+import {useLocation} from 'react-router-dom'
 const SearchWrapper = (props) =>{
     let query = useQuery()
+    const location = useLocation()
+    let queryParams = {}
     useEffect(()=>{
-        if(query.get(`q`) !== null && props.match.url.includes(`simple`)){
-            props.getBooksThunk(query.get(`q`), props.prevTitle)
+        queryParams.title = setQueryParam(query.get(`q`))
+        if(props.match.url.includes(`simple`) && location.search !== ""){
+            props.getBooksThunk(queryParams)
         }
-        if (query.get(`q`) !== null && props.match.url.includes(`advanced`)){
-            props.getBooksAdvancedThunk(query.get(`q`), props.prevTitle)
+        if(props.match.url.includes(`advanced`) && location.search !== ""){
+            queryParams.author = setQueryParam(query.get(`author`))
+            queryParams.filter = setQueryParam(query.get(`filter`))
+            queryParams.newestBook = setQueryParam(query.get(`newestBook`))
+            props.getBooksAdvancedThunk(queryParams)
         }
     })
     const shortDescriptionRef = React.useRef(null)
@@ -36,7 +44,7 @@ const SearchWrapper = (props) =>{
                         <div className="search">
                             <SearchNavbarContainer showDescription={showDescription}/>
                             <Route path='/find/simple' component={withProvideSearchWithStore(SimpleSearchForm)} />
-                            <Route exact path='/find/advanced' component={withProvideSearchWithStore(AdvancedSearch)}/>
+                            <Route path='/find/advanced' component={withProvideAdvancedSearchWithStore(AdvancedSearch)}/>
                             
                             <BooklistContainer />
                         </div>

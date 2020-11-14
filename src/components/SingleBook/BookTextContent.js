@@ -2,6 +2,10 @@ import React from 'react'
 import {processCategory, processPages, processPrice} from '../../api/responseProcessing'
 
 export const BookTextContent = (props) =>{
+    const publishersArray = props.volumeInfo.publisher.split(`,`)
+    const publishers = publishersArray.map((item)=>{
+        return <strong>{item}<br></br></strong>
+    })
     return(
         <div className="book_card_text_wrapper">
             <div className="book_card_title_wrapper">
@@ -34,15 +38,15 @@ export const BookTextContent = (props) =>{
                 <div>
                     <div className="margin_left book_card_item_margin">
                             <p>Country: </p>   
-                            <strong>{props.volumeInfo.country}</strong>
-                    </div>
-                    <div className="margin_left book_card_item_margin">
-                            <p>Publisher: </p>   
-                            <strong>{props.volumeInfo.publisher}</strong>
+                            <strong>{props.volumeInfo.country ? props.volumeInfo.country : `Unknown`}</strong>
                     </div>
                     <div className="margin_left book_card_item_margin">
                             <p>Published date: </p>   
                             <strong>{props.volumeInfo.publishedDate}</strong>
+                    </div>
+                    <div className="margin_left book_card_item_margin">
+                            <p>Publisher: </p>   
+                            {publishers}
                     </div>
                 </div>
             </div>

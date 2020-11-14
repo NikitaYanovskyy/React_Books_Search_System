@@ -58,3 +58,11 @@ export const processPages = (volumeInfo)=>{
         return 0
     }
 }
+
+export const setQueryParam = (queryParam) =>{
+    if(queryParam !== null){
+        return queryParam
+    }else{
+        return ''
+    } 
+}

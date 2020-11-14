@@ -7,7 +7,6 @@ import Book from './components/SingleBook'
 import PageNotFound from './components/NotFound/PageNotFound'
 import ScrollToTop from './components/WindowManipulation/ScrollToTop'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-
 import notFoundImage from './graphycs/images/not-found.jpg'
 import "./stylesheets/allStyles.css"
 

@@ -4,7 +4,10 @@ const initailState = {
     books: [],
     booksTotalItems: -1,
     isBooklistLoaderVisible: false,
-    prevTitle: "",
+    savedTitle: "",
+    savedAuthor: "",
+    savedFilter: "",
+    savedIsNewest: "",
     currentTab: 'simple'
 }
 
@@ -12,7 +15,12 @@ const initailState = {
 export const SimpleGetBooksAC = (books) => ({type: 'SIMPLE_GET_BOOKS', books})
 export const GetBooksTotalItemsAC = (totalItems) => ({type: "GET_BOOKS_TOTAL_ITEMS", totalItems})
 export const SetBooksLoaderAC = (isVisible) => ({type: "SET_BOOKS_LOADER", isVisible})
-export const SetPrevTitleAC = (newTitle) => ({type: "SET_PREV_TITLE", newTitle})
+
+export const SetSavedTitleAC = (title) => ({type: "SET_SAVED_TITLE", title})
+export const SetSavedAuthorAC = (author) => ({type: "SET_SAVED_AUTHOR", author})
+export const SetSavedFilterAC = (filter) => ({type: "SET_SAVED_FILTER", filter})
+export const SetSavedIsNewestAC = (isNewest) => ({type: "SET_SAVED_IS_NEWEST", isNewest})
+
 export const SetCurrentTabAC = (currentTab) => ({type: "SET_CURRENT_SEARCT_TAB", currentTab})
 
 //Reducer
@@ -33,11 +41,27 @@ const SearchReducer = (state = initailState, action) =>{
                 ...state,
                 isBooklistLoaderVisible: action.isVisible
             }
-        case "SET_PREV_TITLE":
-            const newTitle = action.newTitle === null ? state.prevTitle : action.newTitle
+        case "SET_SAVED_TITLE":
+            const title = action.title ? action.title : state.savedTitle
             return{
                 ...state,
-                prevTitle: newTitle
+                savedTitle: title
+            }
+        case "SET_SAVED_AUTHOR":
+            const author = action.author ? action.author : state.savedAuthor
+            return{
+                ...state,
+                author: author
+            }
+        case "SET_SAVED_FILTER":
+            return{
+                ...state,
+                savedFilter: action.filter
+            }
+        case "SET_SAVED_IS_NEWEST":
+            return{
+                ...state,
+                savedIsNewest: action.isNewest
             }
         case "SET_CURRENT_SEARCT_TAB":
             return{

@@ -1,15 +1,36 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useForm, Controller} from 'react-hook-form'
 import {AdvancedTextInput, AdvancedCheckboxInput} from './AdvancedInputs'
 import 'font-awesome/css/font-awesome.min.css';
 import {useHistory} from 'react-router-dom'
 
-const AdvancedSearch = () =>{
-    const {register, handleSubmit, errors, control} = useForm()
+const AdvancedSearch = (props) =>{
+    const {register, handleSubmit, errors, control, setValue} = useForm()
     const history = useHistory()
-
+    
+    useEffect(()=>{
+        if(props.savedTitle !== ''){
+            setValue("title", props.savedTitle)
+        }
+    })
     const onSubmit = (data)=>{
-        history.push(`/find/advanced?q=${data.title}`)
+        let pushUrl = '/find/advanced'
+        if(data.title || data.author || data.filter || data.newestBook){
+            pushUrl+="?"
+        }  
+        if(data.title){
+            pushUrl+=`q=${data.title}&`
+        }
+        if(data.author){
+            pushUrl+=`author=${data.author}&`
+        } 
+        if(data.filter && data.filter != "No filters"){
+            pushUrl+=`filter=${data.filter}&`
+        } 
+        if(data.newestBook){
+            pushUrl+=`newestBook=${data.newestBook}&`
+        } 
+        history.push(pushUrl)
     }
 
     return ( 
@@ -22,9 +43,17 @@ const AdvancedSearch = () =>{
 
                 <div className="filters">
                     <h3>Filters</h3>
-                    <Controller as={AdvancedCheckboxInput} control={control} reference={register} name="freeBook" label="Free book"/>
-                    <Controller as={AdvancedCheckboxInput} control={control} reference={register} name="paidBook" label="Paid book"/>
-                    <Controller as={AdvancedCheckboxInput} control={control} reference={register} name="newestBook" label="Newest"/>
+                    <div className="form-select-input">
+                        <select name="filter" ref={register}>
+                            <option>No filters</option>
+                            <option>Free book</option>
+                            <option>Paid book</option>
+                        </select>
+                    </div>
+                    <div className="form-checkbox-input">
+                        <input ref={register} type="checkbox" name={"newestBook"} id={"Newest"}/>
+                        <label htmlFor="Newest">Newest</label>
+                    </div> 
                 </div> 
                 <button type="submit">
                     <i className="fa fa-search"></i>

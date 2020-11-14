@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 // A missing photo in case if a book item will have no photo
 import bookMissingPhoto from '../../graphycs/images/book_photo_missing_small.jpg'
 // Loader
@@ -24,7 +24,6 @@ const Booklist = (props) =>{
     }
     if(props.booksTotalItems > 0){
         return(
-            <React.Fragment>
             <div className="booklist_container">
                 {
                 props.books.map((item)=>{
@@ -42,7 +41,6 @@ const Booklist = (props) =>{
                     )
                 })}
             </div>
-            </React.Fragment>
         ) 
     } 
 }
