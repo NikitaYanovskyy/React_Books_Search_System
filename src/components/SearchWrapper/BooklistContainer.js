@@ -4,18 +4,20 @@ import {SetBooksLoaderAC} from '../../reducers/SearchReducer'
 import { withRouter } from 'react-router-dom'
 import {compose} from 'redux'
 import {withProvideSearchWithStore} from '../../hocs/withHoc'
-
+import {getBooksAdvancedThunk} from '../../thunks/redux-thunks'
 const mapStateToProps = (state) =>{
     return {
         books: state.searchBranch.books,
         booksTotalItems: state.searchBranch.booksTotalItems,
-        isBooklistLoaderVisible: state.searchBranch.isBooklistLoaderVisible
+        isBooklistLoaderVisible: state.searchBranch.isBooklistLoaderVisible,
+        currentPaginationPage: state.searchBranch.currentPaginationPage
     }
 }
 export default compose(
     withProvideSearchWithStore,
     withRouter,
     connect(mapStateToProps, {
-        SetBooksLoader: SetBooksLoaderAC
+        SetBooksLoader: SetBooksLoaderAC,
+        getBooksAdvancedThunk
     })
 )(Booklist)

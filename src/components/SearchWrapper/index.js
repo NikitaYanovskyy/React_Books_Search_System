@@ -1,20 +1,23 @@
 import React, {useEffect} from 'react'
 import ShortDescription from './ShortDescription'
-import AdvancedSearch from '../AdvancedSearch'
+import AdvancedSearch from '../SearchForms/AdvancedSearch/index'
 import backgroundImage from '../../graphycs/images/book_background.jpg'
 import {Route} from 'react-router-dom'
 import SearchNavbarContainer from './SearchNavbar/SearchNavbarContainer'
-import SimpleSearchForm from './SimpleSearchForm'
+import SimpleSearchForm from '../SearchForms/SimpleSearch/SimpleSearchForm'
 import {withProvideSearchWithStore, withProvideAdvancedSearchWithStore} from '../../hocs/withHoc'
 import BooklistContainer from './BooklistContainer'
 import HeaderImage from '../Header/HeaderImageBlured'
 import {useQuery} from '../../hooks/index'
 import {setQueryParam} from '../../api/responseProcessing'
 import {useLocation} from 'react-router-dom'
+
 const SearchWrapper = (props) =>{
     let query = useQuery()
     const location = useLocation()
+    const shortDescriptionRef = React.useRef(null)
     let queryParams = {}
+    queryParams.currentPaginationPage = props.currentPaginationPage
     useEffect(()=>{
         queryParams.title = setQueryParam(query.get(`q`))
         if(props.match.url.includes(`simple`) && location.search !== ""){
@@ -27,7 +30,7 @@ const SearchWrapper = (props) =>{
             props.getBooksAdvancedThunk(queryParams)
         }
     })
-    const shortDescriptionRef = React.useRef(null)
+
     const showDescription = () =>{
         shortDescriptionRef.current.style.animation = 'short_description_show 0.3s ease-in-out 0s 1 normal forwards'
     }
@@ -45,8 +48,8 @@ const SearchWrapper = (props) =>{
                             <SearchNavbarContainer showDescription={showDescription}/>
                             <Route path='/find/simple' component={withProvideSearchWithStore(SimpleSearchForm)} />
                             <Route path='/find/advanced' component={withProvideAdvancedSearchWithStore(AdvancedSearch)}/>
-                            
-                            <BooklistContainer />
+
+                            <BooklistContainer queryParams={queryParams}/>
                         </div>
 
                         <ShortDescription 

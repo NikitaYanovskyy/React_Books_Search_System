@@ -1,4 +1,14 @@
 .form{
+    input[type=text]{
+        border: none;
+        border: 1.5px solid #000;
+        border-radius: 7px;
+        padding: 10px;
+        width: calc(90% - 46px);
+        &:focus{
+            border-color: $lightPink;
+        }
+    }
     margin-top: 20px;
     margin: 20px 40px 40px 0;
     h1{
@@ -16,43 +26,24 @@
                 z-index: 1;
                 cursor: text;
             }
-            input[type=text]{
-                border: none;
-                border: 1.5px solid #000;
-                border-radius: 4px;
-                padding: 10px;
-                &:focus{
-                    border-color: $lightPink;
-                }
-            }
+        }
+    }
+    .error{
+        position: absolute;
+        font-size: 12px;
+        padding: 5px 10px;
+        color: #fff;
+        background-color: $lightPink;
+        bottom: -32px;
+        i{
+            font-size: 14px;
+            margin-right: 5px;
         }
     }
     .simple_form{
         position: relative;
         max-width: 500px;
         margin-top: 10px;
-        .simple_form_spam_error_message{
-            position: absolute;
-            font-size: 12px;
-            bottom: -32px;
-            padding: 5px 10px;
-            color: #fff;
-            background-color: $lightPink;
-            i{
-                font-size: 14px;
-                margin-right: 5px;
-            }
-        }
-        input[type=text]{
-            border: none;
-            border: 1.5px solid #000;
-            border-radius: 7px;
-            padding: 10px;
-            width: 90%;
-            &:focus{
-                border-color: $darkPink;
-            }
-        }
         input[type=submit]{
             cursor: pointer;
             margin-left: -5px;
@@ -67,6 +58,7 @@
         }
     }  
     .advanced_form{
+        position: relative;
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(3, auto);
@@ -108,13 +100,17 @@
     border: none;
     margin: 40px 0 20px 0;
 }
-.booklist_container{
+.booklist{
+    margin-right: 30px;
+}
+.booklist_cards_container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+    margin-right: 5px;
 }
 .booklist_item_wrapper{
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;
 }
 .booklist_item{
     width: 128px;
@@ -185,10 +181,13 @@
     .search-alert{
         margin: 0;
     }
+    .booklist{
+        margin-right: 0;
+    }
 }
 
 @media screen and(max-width: 650px){
-    .booklist_container{
+    .booklist_cards_container{
         grid-template-columns: repeat(3,1fr);
     }
     .booklist_item{
@@ -197,8 +196,15 @@
 }
 
 @media screen and(max-width: 500px){
-    .booklist_container{
+    .booklist_cards_container{
         grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+}
+
+@media screen and(max-width: 350px){
+    .booklist_cards_container{
+        grid-template-columns: 1fr;
         gap: 10px;
     }
 }

@@ -11,8 +11,19 @@ import firstVisit from '../../graphycs/images/firstVisit.jpg'
 import BookCard from './BookCard/BookCard'
 //Response processing methods
 import {processImage, processCategory, processTitle, processPrice} from '../../api/responseProcessing'
+import {paginationItemsAmount, maxResults} from '../../api/SearchAPI'
+
+//Paginagion
+import Pagination from "react-js-pagination";
+import 'font-awesome/css/font-awesome.min.css';
 
 const Booklist = (props) =>{
+
+    const onPaginationItemChange = (page)=>{
+        props.queryParams.currentPaginationPage = page ? page : props.currentPaginationPage
+        props.getBooksAdvancedThunk(props.queryParams)
+    }
+
     if(props.isBooklistLoaderVisible){
         return <BookslistLoader/>
     }
@@ -24,23 +35,40 @@ const Booklist = (props) =>{
     }
     if(props.booksTotalItems > 0){
         return(
-            <div className="booklist_container">
-                {
-                props.books.map((item)=>{
-                    return (
-                        <div key={item.id} className="booklist_item_wrapper" style={{display: props.isBooklistLoaderVisible ? 'none' : 'block'}}>
-                            <BookCard 
-                                bookCategory={processCategory(item.volumeInfo)}
-                                bookId={item.id}
-                                bookPhoto={processImage(item.volumeInfo, bookMissingPhoto)}
-                                bookTitle={processTitle(item.volumeInfo.title)}
-                                bookAuthors={item.volumeInfo.authors}
-                                bookPrice={processPrice(item.saleInfo)}
-                            />
-                        </div>
-                    )
-                })}
+            <div className="booklist">
+                <Pagination
+                    activePage={props.currentPaginationPage}
+                    itemsCountPerPage={maxResults}
+                    totalItemsCount={props.booksTotalItems}
+                    pageRangeDisplayed={paginationItemsAmount}
+                    onChange={onPaginationItemChange}
+                    itemClass="pagination_li"
+                    innerClass="pagination_ul"
+                    activeClass="pagination_li_active"
+                    hideNavigation={true}
+                    firstPageText={<i className="fa fa-angle-double-left"></i>}
+                    lastPageText={<i className="fa fa-angle-double-right"></i>}
+                />
+                <div className="booklist_cards_container">
+                    {
+                    props.books.map((item)=>{
+                        return (
+                            <div key={item.id} className="booklist_item_wrapper odd" style={{display: props.isBooklistLoaderVisible ? 'none' : 'block'}}>
+                                <BookCard 
+                                    bookCategory={processCategory(item.volumeInfo)}
+                                    bookId={item.id}
+                                    bookPhoto={processImage(item.volumeInfo, bookMissingPhoto)}
+                                    bookTitle={processTitle(item.volumeInfo.title)}
+                                    bookAuthors={item.volumeInfo.authors}
+                                    bookPrice={processPrice(item.saleInfo)}
+                                />
+                            </div>
+                        )
+                    })
+                    }
+                </div>
             </div>
+            
         ) 
     } 
 }

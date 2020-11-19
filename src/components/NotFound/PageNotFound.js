@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useImage} from '../../hooks'
 const PageNotFound = (props) => {
   const image = useImage(props.src)

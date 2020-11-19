@@ -6,9 +6,10 @@ const initailState = {
     isBooklistLoaderVisible: false,
     savedTitle: "",
     savedAuthor: "",
-    savedFilter: "",
+    savedFilter: "No filters",
     savedIsNewest: "",
-    currentTab: 'simple'
+    currentTab: 'simple',
+    currentPaginationPage: 1
 }
 
 //Actions
@@ -16,13 +17,11 @@ export const SimpleGetBooksAC = (books) => ({type: 'SIMPLE_GET_BOOKS', books})
 export const GetBooksTotalItemsAC = (totalItems) => ({type: "GET_BOOKS_TOTAL_ITEMS", totalItems})
 export const SetBooksLoaderAC = (isVisible) => ({type: "SET_BOOKS_LOADER", isVisible})
 
-export const SetSavedTitleAC = (title) => ({type: "SET_SAVED_TITLE", title})
-export const SetSavedAuthorAC = (author) => ({type: "SET_SAVED_AUTHOR", author})
-export const SetSavedFilterAC = (filter) => ({type: "SET_SAVED_FILTER", filter})
-export const SetSavedIsNewestAC = (isNewest) => ({type: "SET_SAVED_IS_NEWEST", isNewest})
+export const SetSavedFormValuesAC = (queryParams) => ({type: "SET_SAVED_FORM_VALUES", queryParams})
 
 export const SetCurrentTabAC = (currentTab) => ({type: "SET_CURRENT_SEARCT_TAB", currentTab})
 
+export const SetCurrentPaginagionPageAC = (currentPaginationPage) => ({type: "SET_CURRENT_PAGINATION_PAGE", currentPaginationPage})
 //Reducer
 const SearchReducer = (state = initailState, action) =>{
     switch(action.type){
@@ -41,32 +40,27 @@ const SearchReducer = (state = initailState, action) =>{
                 ...state,
                 isBooklistLoaderVisible: action.isVisible
             }
-        case "SET_SAVED_TITLE":
-            const title = action.title ? action.title : state.savedTitle
+        case "SET_SAVED_FORM_VALUES":
+            const title = action.queryParams.title ? action.queryParams.title : state.savedTitle
+            const author = action.queryParams.author ? action.queryParams.author : state.savedAuthor
+            const filter = action.queryParams.filter ? action.queryParams.filter : state.savedFilter
+            const isNewest = action.queryParams.newestBook ? action.queryParams.newestBook : state.savedIsNewest
             return{
                 ...state,
-                savedTitle: title
-            }
-        case "SET_SAVED_AUTHOR":
-            const author = action.author ? action.author : state.savedAuthor
-            return{
-                ...state,
-                author: author
-            }
-        case "SET_SAVED_FILTER":
-            return{
-                ...state,
-                savedFilter: action.filter
-            }
-        case "SET_SAVED_IS_NEWEST":
-            return{
-                ...state,
-                savedIsNewest: action.isNewest
+                savedTitle: title,
+                savedAuthor: author,
+                savedFilter: filter,
+                savedIsNewest: isNewest
             }
         case "SET_CURRENT_SEARCT_TAB":
             return{
                 ...state,
                 currentTab: action.currentTab
+            }
+        case "SET_CURRENT_PAGINATION_PAGE":
+            return{
+                ...state,
+                currentPaginationPage: action.currentPaginationPage
             }
         default:
             return {...state};
