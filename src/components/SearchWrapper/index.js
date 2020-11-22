@@ -21,13 +21,13 @@ const SearchWrapper = (props) =>{
     let queryParams = {}
     useEffect(()=>{
         if(location.search !== ""){
-            queryParams.title = props.savedTitle === setQueryParam(query.get(`q`)) ? props.savedTitle : setQueryParam(query.get(`q`))
-            queryParams.author = props.savedAuthor === setQueryParam(query.get(`author`)) ? props.savedAuthor : setQueryParam(query.get(`q`))
+            queryParams.title = setQueryParam(query.get(`q`))
+            queryParams.author = setQueryParam(query.get(`author`))
             queryParams.filter = setQueryParam(query.get(`filter`))
             queryParams.newestBook = setQueryParam(query.get(`newestBook`))
             props.getBooksThunk(queryParams)
         }
-    },[props.savedTitle, props.savedAuthor])
+    })
 
     const showDescription = () =>{
         shortDescriptionRef.current.style.animation = 'short_description_show 0.3s ease-in-out 0s 1 normal forwards'
