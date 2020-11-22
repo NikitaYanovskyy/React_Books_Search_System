@@ -8,7 +8,8 @@ const initailState = {
     savedFilter: "No filters",
     savedIsNewest: "",
     currentTab: 'simple',
-    currentPaginationPage: 1
+    currentPaginationPage: 1,
+    startIndex: 0
 }
 
 //Actions
