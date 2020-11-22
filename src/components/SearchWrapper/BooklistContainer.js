@@ -3,7 +3,7 @@ import Booklist from './Booklist'
 import {SetBooksLoaderAC} from '../../reducers/SearchReducer'
 import { withRouter } from 'react-router-dom'
 import {compose} from 'redux'
-import {withProvideSearchWithStore} from '../../hocs/withHoc'
+import {withProvideAdvancedSearchWithStore} from '../../hocs/withHoc'
 import {getBooksAdvancedThunk} from '../../thunks/redux-thunks'
 const mapStateToProps = (state) =>{
     return {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) =>{
     }
 }
 export default compose(
-    withProvideSearchWithStore,
+    withProvideAdvancedSearchWithStore,
     withRouter,
     connect(mapStateToProps, {
         SetBooksLoader: SetBooksLoaderAC,

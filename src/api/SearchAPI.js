@@ -2,10 +2,6 @@ import axios from 'axios';
 export const maxResults = 30;
 export const paginationItemsAmount = 7;
 const SearchAPI = {
-    getBooksByTitle: async (queryParams) => {
-        let startIndex = queryParams.currentPaginationPage ? queryParams.currentPaginationPage * 30 - 30 : 0
-        return await axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${queryParams.title}&startIndex=${startIndex}&maxResults=${maxResults}`);
-    },
     getSingleBook: async (bookId) =>{
         return await axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`);
     },

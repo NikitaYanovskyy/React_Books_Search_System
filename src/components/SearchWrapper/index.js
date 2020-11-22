@@ -4,8 +4,7 @@ import AdvancedSearch from '../SearchForms/AdvancedSearch/index'
 import backgroundImage from '../../graphycs/images/book_background.jpg'
 import {Route} from 'react-router-dom'
 import SearchNavbarContainer from './SearchNavbar/SearchNavbarContainer'
-import SimpleSearchForm from '../SearchForms/SimpleSearch/SimpleSearchForm'
-import {withProvideSearchWithStore, withProvideAdvancedSearchWithStore} from '../../hocs/withHoc'
+import {withProvideAdvancedSearchWithStore} from '../../hocs/withHoc'
 import BooklistContainer from './BooklistContainer'
 import HeaderImage from '../Header/HeaderImageBlured'
 import {useQuery} from '../../hooks/index'
@@ -22,9 +21,6 @@ const SearchWrapper = (props) =>{
     let queryParams = {}
     useEffect(()=>{
         queryParams.title = setQueryParam(query.get(`q`))
-        if(props.match.url.includes(`simple`) && location.search !== ""){
-            props.getBooksThunk(queryParams)
-        }
         if(props.match.url.includes(`advanced`) && location.search !== ""){
             queryParams.author = setQueryParam(query.get(`author`))
             queryParams.filter = setQueryParam(query.get(`filter`))
@@ -48,7 +44,6 @@ const SearchWrapper = (props) =>{
                     <div className="search_section side_offset">
                         <div className="search">
                             <SearchNavbarContainer showDescription={showDescription}/>
-                            <Route path='/find/simple' component={withProvideSearchWithStore(SimpleSearchForm)} />
                             <Route path='/find/advanced' component={withProvideAdvancedSearchWithStore(AdvancedSearch)}/>
 
                             <Paginator queryParams={queryParams}/>

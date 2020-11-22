@@ -21,7 +21,6 @@ const ShortDescription = (props) =>{
                     <li>image</li>
                     <li>buy link</li>
                 </ul>
-                <p>Simple and advanced search systems are available.</p>
             </div>
             <div className="short_description_background"></div>
         </div>

@@ -7,25 +7,22 @@ const initailState = {
     savedAuthor: "",
     savedFilter: "No filters",
     savedIsNewest: "",
-    currentTab: 'simple',
     currentPaginationPage: 1,
     startIndex: 0
 }
 
 //Actions
-export const SimpleGetBooksAC = (books) => ({type: 'SIMPLE_GET_BOOKS', books})
+export const GetBooksAC = (books) => ({type: 'GET_BOOKS', books})
 export const GetBooksTotalItemsAC = (totalItems) => ({type: "GET_BOOKS_TOTAL_ITEMS", totalItems})
 export const SetBooksLoaderAC = (isVisible) => ({type: "SET_BOOKS_LOADER", isVisible})
 
 export const SetSavedFormValuesAC = (queryParams) => ({type: "SET_SAVED_FORM_VALUES", queryParams})
 
-export const SetCurrentTabAC = (currentTab) => ({type: "SET_CURRENT_SEARCT_TAB", currentTab})
-
 export const SetCurrentPaginagionPageAC = (currentPaginationPage) => ({type: "SET_CURRENT_PAGINATION_PAGE", currentPaginationPage})
 //Reducer
 const SearchReducer = (state = initailState, action) =>{
     switch(action.type){
-        case "SIMPLE_GET_BOOKS":
+        case "GET_BOOKS":
             return {
                 ...state,
                 books: typeof action.books === "undefined" ? [] : action.books
@@ -51,11 +48,6 @@ const SearchReducer = (state = initailState, action) =>{
                 savedAuthor: author,
                 savedFilter: filter,
                 savedIsNewest: isNewest
-            }
-        case "SET_CURRENT_SEARCT_TAB":
-            return{
-                ...state,
-                currentTab: action.currentTab
             }
         case "SET_CURRENT_PAGINATION_PAGE":
             return{
