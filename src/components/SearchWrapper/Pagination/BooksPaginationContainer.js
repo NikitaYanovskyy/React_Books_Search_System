@@ -21,6 +21,7 @@ const BooksPaginationContainer = (props)=>{
         props.queryParams.currentPaginationPage = page ? page : props.currentPaginationPage
         props.getBooksAdvancedThunk(props.queryParams)
     }
+    const paginationUlStyle = props.booksTotalItems <= -1 ? "pagination_ul pagination_hidden" : "pagination_ul"
     return(
         <Pagination
             activePage={props.currentPaginationPage}
@@ -29,7 +30,7 @@ const BooksPaginationContainer = (props)=>{
             pageRangeDisplayed={paginationItemsAmount}
             onChange={onPaginationItemChange}
             itemClass="pagination_li"
-            innerClass="pagination_ul"
+            innerClass={paginationUlStyle}
             activeClass="pagination_li_active"
             hideNavigation={true}
             firstPageText={<i className="fa fa-angle-double-left"></i>}

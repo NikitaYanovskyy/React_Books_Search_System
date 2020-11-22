@@ -4,6 +4,9 @@
     list-style: none;
     margin-bottom: 20px;
 }
+.pagination_hidden{
+    visibility: hidden;
+}
 .pagination_li{
     flex: 1;
     outline: 1px solid $lightPink;
