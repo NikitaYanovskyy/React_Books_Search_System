@@ -20,7 +20,6 @@ const SearchWrapper = (props) =>{
     const location = useLocation()
     const shortDescriptionRef = React.useRef(null)
     let queryParams = {}
-    queryParams.currentPaginationPage = props.currentPaginationPage
     useEffect(()=>{
         queryParams.title = setQueryParam(query.get(`q`))
         if(props.match.url.includes(`simple`) && location.search !== ""){
