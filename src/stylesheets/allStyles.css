@@ -32,16 +32,7 @@
           flex: 1;
   font-size: calc(18px + 2vmin);
   margin-right: 1em;
-}
-
-.navigation_title a {
   color: #c75e70;
-  -webkit-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
-}
-
-.navigation_title a:hover {
-  color: #913f3f;
 }
 
 .navigation_about_button {
@@ -261,6 +252,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-bottom: 100px;
 }
 
 .search_section {
@@ -381,6 +373,7 @@
 .show_description_open i {
   font-size: 16px;
   margin-left: 5px;
+  margin-top: -3px;
 }
 
 .short_description_close_button {
@@ -546,24 +539,6 @@
 .form .error i {
   font-size: 14px;
   margin-right: 5px;
-}
-
-.form .simple_form {
-  position: relative;
-  max-width: 500px;
-  margin-top: 10px;
-}
-
-.form .simple_form input[type=submit] {
-  cursor: pointer;
-  margin-left: -5px;
-  border: none;
-  border: 2px solid #c75e70;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  padding: 10px;
-  color: #fff;
-  background-color: #5a0f0f;
 }
 
 .form .advanced_form {
@@ -754,6 +729,8 @@
   position: relative;
   -webkit-transform: translate(calc(50% - 20px), 50px);
           transform: translate(calc(50% - 20px), 50px);
+  padding-bottom: 300px;
+  padding-top: 50px;
 }
 
 .loader div {
@@ -1266,7 +1243,7 @@
 }
 
 .pagination_hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .pagination_li {

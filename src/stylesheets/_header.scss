@@ -16,10 +16,7 @@
     flex: 1;
     font-size: calc(18px + 2vmin);
     margin-right: 1em;
-    a{
-        color: $lightPink;
-        @include link_hover
-    }
+    color: $lightPink;
 }
 .navigation_about_button{
     display: block;

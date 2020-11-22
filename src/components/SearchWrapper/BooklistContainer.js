@@ -3,8 +3,8 @@ import Booklist from './Booklist'
 import {SetBooksLoaderAC} from '../../reducers/SearchReducer'
 import { withRouter } from 'react-router-dom'
 import {compose} from 'redux'
-import {withProvideAdvancedSearchWithStore} from '../../hocs/withHoc'
-import {getBooksAdvancedThunk} from '../../thunks/redux-thunks'
+import {withProvideSearchWithStore} from '../../hocs/withHoc'
+import {getBooksThunk} from '../../thunks/redux-thunks'
 const mapStateToProps = (state) =>{
     return {
         books: state.searchBranch.books,
@@ -13,10 +13,10 @@ const mapStateToProps = (state) =>{
     }
 }
 export default compose(
-    withProvideAdvancedSearchWithStore,
+    withProvideSearchWithStore,
     withRouter,
     connect(mapStateToProps, {
         SetBooksLoader: SetBooksLoaderAC,
-        getBooksAdvancedThunk
+        getBooksThunk
     })
 )(Booklist)

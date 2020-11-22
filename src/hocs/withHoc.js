@@ -1,9 +1,9 @@
 import {connect} from 'react-redux'
-import {getBooksAdvancedThunk} from '../thunks/redux-thunks'
+import {getBooksThunk} from '../thunks/redux-thunks'
 import {SetBooksLoaderAC} from '../reducers/SearchReducer'
 
 
-export const withProvideAdvancedSearchWithStore = (Component) =>{
+export const withProvideSearchWithStore = (Component) =>{
     const mapStateToProps = (state) =>{
         return {
             savedTitle: state.searchBranch.savedTitle,
@@ -12,7 +12,7 @@ export const withProvideAdvancedSearchWithStore = (Component) =>{
             savedIsNewest: state.searchBranch.savedIsNewest,
         }
     }
-    return connect(mapStateToProps,{getBooksAdvancedThunk})(Component)
+    return connect(mapStateToProps,{getBooksThunk})(Component)
 }
 
 export const withProvideBooksLoaderState = (Component) =>{

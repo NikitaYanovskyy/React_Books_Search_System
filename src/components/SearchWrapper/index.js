@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react'
 import ShortDescription from './ShortDescription'
-import AdvancedSearch from '../SearchForms/AdvancedSearch/index'
+import Search from '../SearchForms/index'
 import backgroundImage from '../../graphycs/images/book_background.jpg'
 import {Route} from 'react-router-dom'
 import SearchNavbarContainer from './SearchNavbar/SearchNavbarContainer'
-import {withProvideAdvancedSearchWithStore} from '../../hocs/withHoc'
+import {withProvideSearchWithStore} from '../../hocs/withHoc'
 import BooklistContainer from './BooklistContainer'
 import HeaderImage from '../Header/HeaderImageBlured'
 import {useQuery} from '../../hooks/index'
@@ -20,14 +20,14 @@ const SearchWrapper = (props) =>{
     const shortDescriptionRef = React.useRef(null)
     let queryParams = {}
     useEffect(()=>{
-        queryParams.title = setQueryParam(query.get(`q`))
-        if(props.match.url.includes(`advanced`) && location.search !== ""){
-            queryParams.author = setQueryParam(query.get(`author`))
+        if(location.search !== ""){
+            queryParams.title = props.savedTitle === setQueryParam(query.get(`q`)) ? props.savedTitle : setQueryParam(query.get(`q`))
+            queryParams.author = props.savedAuthor === setQueryParam(query.get(`author`)) ? props.savedAuthor : setQueryParam(query.get(`q`))
             queryParams.filter = setQueryParam(query.get(`filter`))
             queryParams.newestBook = setQueryParam(query.get(`newestBook`))
-            props.getBooksAdvancedThunk(queryParams)
+            props.getBooksThunk(queryParams)
         }
-    })
+    },[props.savedTitle, props.savedAuthor])
 
     const showDescription = () =>{
         shortDescriptionRef.current.style.animation = 'short_description_show 0.3s ease-in-out 0s 1 normal forwards'
@@ -44,7 +44,7 @@ const SearchWrapper = (props) =>{
                     <div className="search_section side_offset">
                         <div className="search">
                             <SearchNavbarContainer showDescription={showDescription}/>
-                            <Route path='/find/advanced' component={withProvideAdvancedSearchWithStore(AdvancedSearch)}/>
+                            <Route path='/find' component={withProvideSearchWithStore(Search)}/>
 
                             <Paginator queryParams={queryParams}/>
                             <BooklistContainer queryParams={queryParams}/>

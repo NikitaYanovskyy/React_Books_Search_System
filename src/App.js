@@ -18,8 +18,7 @@ function App() {
         <ScrollToTop>
           <Header />
             <Switch>
-                <Route path='/find/simple' component={SearchWrapperContainer} />
-                <Route path='/find/advanced' component={SearchWrapperContainer} />
+                <Route exact path='/find' component={SearchWrapperContainer} />
                 <Route exact path='/about' component={About} />
                 <Route exact path="/books/:bookId"  component={Book} />
                 <Route render={()=>(<PageNotFound firstTitle="404" secondTitle="Page not found" src={notFoundImage}/>)} />

@@ -1,11 +1,24 @@
 import axios from 'axios';
 export const maxResults = 30;
 export const paginationItemsAmount = 7;
+
+/*
+axios.interceptors.response.use((response) => {
+    if (response.config.parse) {
+        
+    }
+    console.log(response)
+    return response;
+}, (error) => {
+    console.log(error)
+    return Promise.reject(error.message);
+});
+*/
 const SearchAPI = {
     getSingleBook: async (bookId) =>{
         return await axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`);
     },
-    getBooksAdvanced: async (queryParams)=>{
+    getBooks: async (queryParams)=>{
         let startIndex = queryParams.currentPaginationPage ? queryParams.currentPaginationPage * 30 - 30 : 0
         let requestUrl = `https://www.googleapis.com/books/v1/volumes?`
         if(queryParams.author && queryParams.title){
@@ -23,7 +36,10 @@ const SearchAPI = {
         if(queryParams.newestBook){
             requestUrl+=`orderBy=newest&`
         }
-        return await axios.get(requestUrl+`startIndex=${startIndex}&maxResults=${maxResults}`);
+
+        if(queryParams.author || queryParams.title){
+            return await axios.get(requestUrl+`startIndex=${startIndex}&maxResults=${maxResults}`);
+        }
     }
 }
 

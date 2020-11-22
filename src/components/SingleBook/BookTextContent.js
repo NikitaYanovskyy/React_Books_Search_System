@@ -3,8 +3,8 @@ import {processCategory, processPages, processPrice} from '../../api/responsePro
 
 export const BookTextContent = (props) =>{
     const publishersArray = props.volumeInfo.publisher.split(`,`)
-    const publishers = publishersArray.map((item)=>{
-        return <strong>{item}<br></br></strong>
+    const publishers = publishersArray.map((item, index)=>{
+        return <strong key={index}>{item}<br></br></strong>
     })
     return(
         <div className="book_card_text_wrapper">

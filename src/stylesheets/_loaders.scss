@@ -3,6 +3,8 @@ $transformValue: 20px;
 .loader{
     position: relative;
     transform: translate(calc(50% - 20px), 50px);
+    padding-bottom: 300px;
+    padding-top: 50px;
     div{
         position: absolute;
         width: $blockWidth;

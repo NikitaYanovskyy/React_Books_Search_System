@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getBooksAdvancedThunk} from '../../../thunks/redux-thunks'
+import {getBooksThunk} from '../../../thunks/redux-thunks'
 
 //Paginagion
 import {paginationItemsAmount, maxResults} from '../../../api/SearchAPI'
@@ -19,9 +19,9 @@ const BooksPaginationContainer = (props)=>{
 
     const onPaginationItemChange = (page)=>{
         props.queryParams.currentPaginationPage = page ? page : props.currentPaginationPage
-        props.getBooksAdvancedThunk(props.queryParams)
+        props.getBooksThunk(props.queryParams)
     }
-    const paginationUlStyle = props.booksTotalItems <= -1 ? "pagination_ul pagination_hidden" : "pagination_ul"
+    const paginationUlStyle = props.booksTotalItems <= 0 ? "pagination_ul pagination_hidden" : "pagination_ul"
     return(
         <Pagination
             activePage={props.currentPaginationPage}
@@ -39,4 +39,4 @@ const BooksPaginationContainer = (props)=>{
     )
 }
 
-export default connect(mapStateToProps,{getBooksAdvancedThunk})(BooksPaginationContainer) 
+export default connect(mapStateToProps,{getBooksThunk})(BooksPaginationContainer) 

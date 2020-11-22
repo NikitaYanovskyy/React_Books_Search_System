@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form'
 import 'font-awesome/css/font-awesome.min.css';
 import {useHistory} from 'react-router-dom'
 
-const AdvancedSearch = (props) =>{
+const Search = (props) =>{
     const {register, handleSubmit, errors, setValue, getValues} = useForm()
     const history = useHistory()
     
@@ -14,7 +14,7 @@ const AdvancedSearch = (props) =>{
         setValue("newestBook", Boolean(props.savedIsNewest) === true ? "checked" : "")
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
-        let pushUrl = '/find/advanced'
+        let pushUrl = '/find'
         if(data.title || data.author || data.filter || data.newestBook){
             pushUrl+="?"
         }  
@@ -40,8 +40,8 @@ const AdvancedSearch = (props) =>{
     }
     return ( 
         <div className="form" >
-            <h1>Advanced search</h1> 
-            <p>Find book by it’s name or particular word in the name</p> 
+            <h1>Start searching</h1> 
+            <p>Find books by using the form below</p> 
             <form className="advanced_form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-text-input">
                     <input ref={register({
@@ -85,4 +85,4 @@ const AdvancedSearch = (props) =>{
     )
 }
 
-export default AdvancedSearch
+export default Search
