@@ -10,7 +10,6 @@ const mapStateToProps = (state) =>{
         books: state.searchBranch.books,
         booksTotalItems: state.searchBranch.booksTotalItems,
         isBooklistLoaderVisible: state.searchBranch.isBooklistLoaderVisible,
-        currentPaginationPage: state.searchBranch.currentPaginationPage
     }
 }
 export default compose(

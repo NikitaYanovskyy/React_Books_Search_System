@@ -12,6 +12,9 @@ import {useQuery} from '../../hooks/index'
 import {setQueryParam} from '../../api/responseProcessing'
 import {useLocation} from 'react-router-dom'
 
+//Paginator
+import Paginator from './Pagination/BooksPaginationContainer'
+
 const SearchWrapper = (props) =>{
     let query = useQuery()
     const location = useLocation()
@@ -49,6 +52,7 @@ const SearchWrapper = (props) =>{
                             <Route path='/find/simple' component={withProvideSearchWithStore(SimpleSearchForm)} />
                             <Route path='/find/advanced' component={withProvideAdvancedSearchWithStore(AdvancedSearch)}/>
 
+                            <Paginator queryParams={queryParams}/>
                             <BooklistContainer queryParams={queryParams}/>
                         </div>
 

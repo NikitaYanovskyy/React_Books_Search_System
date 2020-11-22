@@ -4,7 +4,10 @@ import {withProvideSearchWithStore, withProvideAdvancedSearchWithStore} from '..
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 const mapStateToProps = (state) =>(
-    {currentPaginationPage: state.searchBranch.currentPaginationPage}
+    {
+        currentPaginationPage: state.searchBranch.currentPaginationPage,
+        booksTotalItems: state.searchBranch.booksTotalItems
+    }
 )
 export default compose(
     connect(mapStateToProps,{}),
