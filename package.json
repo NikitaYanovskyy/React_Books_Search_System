@@ -1,7 +1,7 @@
 {
   "name": "react-books",
   "version": "0.1.0",
-  "homepage": "http://teamilkshake.github.io/find/simple",
+  "homepage": "http://teamilkshake.github.io/find",
   "private": true,
   "dependencies": {
     "@hookform/error-message": "^0.0.4",
