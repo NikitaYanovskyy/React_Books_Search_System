@@ -18,9 +18,9 @@ function App() {
         <ScrollToTop>
           <Header />
             <Switch>
-                <Route exact path='React_Books_Search_System/find' component={SearchWrapperContainer} />
-                <Route exact path='React_Books_Search_System/about' component={About} />
-                <Route exact path="React_Books_Search_System/books/:bookId"  component={Book} />
+                <Route exact path='/React_Books_Search_System/find' component={SearchWrapperContainer} />
+                <Route exact path='/React_Books_Search_System/about' component={About} />
+                <Route exact path="/React_Books_Search_System/books/:bookId"  component={Book} />
                 <Route render={()=>(<PageNotFound firstTitle="404" secondTitle="Page not found" src={notFoundImage}/>)} />
             </Switch>   
           <Footer />

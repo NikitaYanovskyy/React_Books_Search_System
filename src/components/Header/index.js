@@ -23,7 +23,7 @@ const Header = () =>{
                     <h1 className='navigation_title'>
                         Google Books Search
                     </h1>
-                    <NavLink to='React_Books_Search_System/about'
+                    <NavLink to='/React_Books_Search_System/about'
                         ref={aboutButtonRef}                       
                         className='navigation_about_button'
                     >
