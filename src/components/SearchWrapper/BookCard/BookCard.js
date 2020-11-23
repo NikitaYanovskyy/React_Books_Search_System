@@ -6,7 +6,7 @@ const BookCard = (props) =>{
     return(
         <div className="booklist_item">
             <strong style={{color: bookCategoryColor}} className="booklist_item_category">{props.bookCategory}</strong>
-            <NavLink to={'React_Books_Search_System/books/' + props.bookId}>
+            <NavLink to={'/React_Books_Search_System/books/' + props.bookId}>
                 <BookCardImage src={props.bookPhoto}/>
             </NavLink>
             <h4 className="booklist_item_title">{props.bookTitle}</h4>
