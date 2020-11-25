@@ -44,7 +44,7 @@ const SearchWrapper = (props) =>{
                     <div className="search_section side_offset">
                         <div className="search">
                             <SearchNavbarContainer showDescription={showDescription}/>
-                            <Route path='/find' component={withProvideSearchWithStore(Search)}/>
+                            <Route path='/React_Books_Search_System/' component={withProvideSearchWithStore(Search)}/>
 
                             <Paginator queryParams={queryParams}/>
                             <BooklistContainer queryParams={queryParams}/>

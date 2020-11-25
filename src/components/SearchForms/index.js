@@ -14,7 +14,7 @@ const Search = (props) =>{
         setValue("newestBook", Boolean(props.savedIsNewest) === true ? "checked" : "")
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
-        let pushUrl = '/find'
+        let pushUrl = '/React_Books_Search_System/find'
         if(data.title || data.author || data.filter || data.newestBook){
             pushUrl+="?"
         }  
