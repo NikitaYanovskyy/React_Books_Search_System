@@ -26,7 +26,7 @@ const BooksPaginationContainer = (props)=>{
         <Pagination
             activePage={props.currentPaginationPage}
             itemsCountPerPage={maxResults}
-            totalItemsCount={props.booksTotalItems - 6}
+            totalItemsCount={props.booksTotalItems}
             pageRangeDisplayed={paginationItemsAmount}
             onChange={onPaginationItemChange}
             itemClass="pagination_li"
