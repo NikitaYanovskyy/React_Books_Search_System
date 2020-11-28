@@ -648,6 +648,7 @@
 }
 
 .search-alert {
+  background: linear-gradient(45deg, #5a0f0f, #c75e70);
   position: relative;
   margin-right: 40px;
   display: -webkit-box;

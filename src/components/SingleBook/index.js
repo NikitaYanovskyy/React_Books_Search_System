@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import SearchAPI from '../../api/SearchAPI'
 import '../../../node_modules/font-awesome/css/font-awesome.min.css'
 import bookMissingPhoto from '../../graphycs/images/book_photo_missing_small.jpg'

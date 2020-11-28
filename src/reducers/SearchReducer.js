@@ -44,7 +44,7 @@ const SearchReducer = (state = initailState, action) =>{
         case "SET_SAVED_FORM_VALUES":
             const title = (action.queryParams.title !== undefined || action.queryParams.title === "") ? action.queryParams.title : state.savedTitle
             const author = (action.queryParams.author !== undefined  || action.queryParams.author === "") ? action.queryParams.author : state.savedAuthor
-            const filter = (action.queryParams.filter !== undefined  || action.queryParams.filter === "") ? action.queryParams.filter : state.savedFilter
+            const filter = (action.queryParams.filter === "") ? "No filters" : action.queryParams.filter 
             const isNewest = (action.queryParams.newestBook !== undefined  || action.queryParams.newestBook === "") ? action.queryParams.newestBook : state.savedIsNewest
             return{
                 ...state,

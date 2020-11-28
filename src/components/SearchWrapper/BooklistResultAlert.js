@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import BookslistLoader from '../Loader/BookslistLoader'
 const BooklistResultAlert = (props) =>{
     const [loading, setLoadingState] = useState(true)
     const imageLoaded = () =>{
