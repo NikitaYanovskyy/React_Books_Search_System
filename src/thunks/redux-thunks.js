@@ -10,6 +10,7 @@ export const getBooksThunk = (queryParams) =>{
         //Show Loader
         dispatch(SetBooksLoaderAC(true))
         try{
+            console.log(queryParams)
             let response = await searchAPI.getBooks(queryParams)
 
             //Hide Loader

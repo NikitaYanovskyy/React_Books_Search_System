@@ -18,7 +18,11 @@ const mapStateToProps = (state) =>(
 const BooksPaginationContainer = (props)=>{
 
     const onPaginationItemChange = (page)=>{
-        props.queryParams.currentPaginationPage = page ? page : props.currentPaginationPage
+        Object.defineProperty(props.queryParams, "currentPaginationPage", 
+        {   writable: true,
+            configurable: true,
+            value: page ? page : props.currentPaginationPage
+        }) 
         props.getBooksThunk(props.queryParams)
     }
     const paginationUlStyle = props.booksTotalItems <= 0 ? "pagination_ul pagination_hidden" : "pagination_ul"

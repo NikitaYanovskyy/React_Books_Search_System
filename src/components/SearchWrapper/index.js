@@ -20,12 +20,12 @@ const SearchWrapper = (props) =>{
     const shortDescriptionRef = React.useRef(null)
     let queryParams = {}
     useEffect(()=>{
+        queryParams.title = setQueryParam(query.get(`q`))
+        queryParams.author = setQueryParam(query.get(`author`))
+        queryParams.filter = setQueryParam(query.get(`filter`))
+        queryParams.newestBook = setQueryParam(query.get(`newestBook`))
         if(props.isAllowedToSendRequest){
             if(location.search !== ""){
-                queryParams.title = setQueryParam(query.get(`q`))
-                queryParams.author = setQueryParam(query.get(`author`))
-                queryParams.filter = setQueryParam(query.get(`filter`))
-                queryParams.newestBook = setQueryParam(query.get(`newestBook`))
                 props.getBooksThunk(queryParams)
             }
         }
