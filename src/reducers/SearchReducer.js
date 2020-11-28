@@ -8,7 +8,8 @@ const initailState = {
     savedFilter: "No filters",
     savedIsNewest: "",
     currentPaginationPage: 1,
-    startIndex: 0
+    startIndex: 0,
+    isAllowedToSendRequest: true
 }
 
 //Actions
@@ -19,6 +20,9 @@ export const SetBooksLoaderAC = (isVisible) => ({type: "SET_BOOKS_LOADER", isVis
 export const SetSavedFormValuesAC = (queryParams) => ({type: "SET_SAVED_FORM_VALUES", queryParams})
 
 export const SetCurrentPaginagionPageAC = (currentPaginationPage) => ({type: "SET_CURRENT_PAGINATION_PAGE", currentPaginationPage})
+
+export const SetIsAllowedToSendRequestAC = (isAllowedToSendRequest) => ({type: "SET_IS_ALLOWED_TO_SEND_REQUEST", isAllowedToSendRequest})
+
 //Reducer
 const SearchReducer = (state = initailState, action) =>{
     switch(action.type){
@@ -53,6 +57,11 @@ const SearchReducer = (state = initailState, action) =>{
             return{
                 ...state,
                 currentPaginationPage: action.currentPaginationPage
+            }
+        case "SET_IS_ALLOWED_TO_SEND_REQUEST":
+            return{
+                ...state,
+                isAllowedToSendRequest: action.isAllowedToSendRequest
             }
         default:
             return {...state};

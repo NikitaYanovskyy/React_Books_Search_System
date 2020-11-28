@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import ShortDescription from './ShortDescription'
-import Search from '../SearchForms/index'
+import Search from '../SearchForms/SearchContainer'
 import backgroundImage from '../../graphycs/images/book_background.jpg'
 import {Route} from 'react-router-dom'
 import SearchNavbarContainer from './SearchNavbar/SearchNavbarContainer'
@@ -20,12 +20,14 @@ const SearchWrapper = (props) =>{
     const shortDescriptionRef = React.useRef(null)
     let queryParams = {}
     useEffect(()=>{
-        if(location.search !== ""){
-            queryParams.title = setQueryParam(query.get(`q`))
-            queryParams.author = setQueryParam(query.get(`author`))
-            queryParams.filter = setQueryParam(query.get(`filter`))
-            queryParams.newestBook = setQueryParam(query.get(`newestBook`))
-            props.getBooksThunk(queryParams)
+        if(props.isAllowedToSendRequest){
+            if(location.search !== ""){
+                queryParams.title = setQueryParam(query.get(`q`))
+                queryParams.author = setQueryParam(query.get(`author`))
+                queryParams.filter = setQueryParam(query.get(`filter`))
+                queryParams.newestBook = setQueryParam(query.get(`newestBook`))
+                props.getBooksThunk(queryParams)
+            }
         }
     })
 

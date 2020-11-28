@@ -30,7 +30,7 @@ const Book = (props) =>{
             }
         }
         FetchData()
-
+        props.SetIsAllowedToSendRequest(false)
     }, [props.match.params.bookId])
 
     const imageSrc = book !== null ? processImage(book.data.volumeInfo, bookMissingPhoto) : ""

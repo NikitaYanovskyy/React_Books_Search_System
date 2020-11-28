@@ -1,5 +1,5 @@
 import searchAPI from '../api/SearchAPI'
-import {GetBooksAC, GetBooksTotalItemsAC, SetBooksLoaderAC, SetSavedFormValuesAC, SetCurrentPaginagionPageAC} from '../reducers/SearchReducer'
+import {GetBooksAC, GetBooksTotalItemsAC, SetBooksLoaderAC, SetSavedFormValuesAC, SetCurrentPaginagionPageAC, SetIsAllowedToSendRequestAC} from '../reducers/SearchReducer'
 
 
 export const getBooksThunk = (queryParams) =>{

@@ -14,6 +14,10 @@ const Search = (props) =>{
         setValue("newestBook", Boolean(props.savedIsNewest) === true ? "checked" : "")
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
+        // Allow to server request from search wrapper 
+        if(!props.isAllowedToSendRequest) {props.SetIsAllowedToSendRequest(true)}
+
+        // Building url
         let pushUrl = '/React_Books_Search_System/find'
         if(data.title || data.author || data.filter || data.newestBook){
             pushUrl+="?"
@@ -84,5 +88,7 @@ const Search = (props) =>{
         </div>
     )
 }
+
+
 
 export default Search

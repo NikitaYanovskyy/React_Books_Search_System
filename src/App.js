@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './components/About';
 import SearchWrapperContainer from './components/SearchWrapper/SearchWrapperContainer';
-import Book from './components/SingleBook'
+import Book from './components/SingleBook/SingleBookContainer'
 import PageNotFound from './components/NotFound/PageNotFound'
 import ScrollToTop from './components/WindowManipulation/ScrollToTop'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
