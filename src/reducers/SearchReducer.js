@@ -8,7 +8,6 @@ const initailState = {
     savedFilter: "No filters",
     savedIsNewest: "",
     currentPaginationPage: 1,
-    startIndex: 0,
     isAllowedToSendRequest: true
 }
 

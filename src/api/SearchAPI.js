@@ -18,7 +18,7 @@ const SearchAPI = {
     getSingleBook: async (bookId) =>{
         return await axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`);
     },
-    getBooks: async (queryParams)=>{
+    getBooks: async (queryParams, sourceToken)=>{
         let startIndex = queryParams.currentPaginationPage ? queryParams.currentPaginationPage * 30 - 30 : 0
         let requestUrl = `https://www.googleapis.com/books/v1/volumes?`
         if(queryParams.author && queryParams.title){
@@ -38,7 +38,9 @@ const SearchAPI = {
         }
 
         if(queryParams.author || queryParams.title){
-            return await axios.get(requestUrl+`startIndex=${startIndex}&maxResults=${maxResults}`);
+            return await axios.get(requestUrl+`startIndex=${startIndex}&maxResults=${maxResults}`, {
+                cancelToken: sourceToken
+            });
         }
     }
 }

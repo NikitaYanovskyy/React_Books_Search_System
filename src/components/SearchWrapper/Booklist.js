@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 // A missing photo in case if a book item will have no photo
 import bookMissingPhoto from '../../graphycs/images/book_photo_missing_small.jpg'
 // Loader
@@ -14,7 +14,6 @@ import {processImage, processCategory, processTitle, processPrice} from '../../a
 
 
 const Booklist = (props) =>{
-
     if(props.isBooklistLoaderVisible){
         return <BookslistLoader/>
     }

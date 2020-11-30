@@ -2,7 +2,7 @@
     height: 30px;
     display: flex;
     list-style: none;
-    margin-bottom: 20px;
+    margin: 0 40px 20px 0;
 }
 .pagination_hidden{
     display: none;
@@ -27,5 +27,11 @@
 .pagination_li_active{
     a{
         background-color: $lightPink;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .pagination_ul{
+        margin: 0 0 20px 0;
     }
 }

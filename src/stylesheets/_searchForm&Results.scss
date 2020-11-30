@@ -1,7 +1,7 @@
 .form{
     input[type=text]{
         border: none;
-        border: 1.5px solid #000;
+        border: 1.5px solid #d6d4d4;
         border-radius: 7px;
         padding: 10px;
         width: calc(90% - 46px);
@@ -49,6 +49,44 @@
         input[type=text]{
            width: 100%;
         }
+        .checkbox{
+            position: relative;
+            input{
+                position: absolute;
+                width: 0;
+                height: 0;
+            }
+            .checkbox_background{
+                border: 1px solid $darkPink;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                left: 0;
+                top: 2px;
+                width: 15px;
+                height: 15px;
+                &::after{
+                    content: '';
+                    display: none;
+                    margin-top: -3px;
+                    width: 4px;
+                    height: 6px;
+                    border: solid white;
+                    border-width: 0 3px 3px 0;
+                    transform: rotate(45deg);
+                }    
+            }
+            input:checked + .checkbox_background{
+                background-color: $darkPink;
+                border: none;
+                &::after{
+                    display: block;
+                }    
+            }
+            
+        }
+
         button{
             border: none;
             background-color: $lightPink;
@@ -68,11 +106,21 @@
             float: left;
             margin-right: 15px;
             label{
-                margin-left: 4px;
+                position: relative;
+                z-index: 1;
+                padding-left: 20px;
                 color: rgb(73, 73, 73);
                 font-size: 14px;
+                &::selection{
+                    background-color: transparent;
+                }
             }
         }
+    }
+}
+.filters{
+    p{
+        margin-bottom: 4px;
     }
 }
 
@@ -183,6 +231,9 @@
     .booklist_cards_container{
         grid-template-columns: repeat(2,1fr);
         gap: 10px;
+    }
+    .filters{
+        grid-column: 1/3;
     }
 }
 

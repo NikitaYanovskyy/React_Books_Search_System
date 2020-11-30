@@ -1,12 +1,14 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useForm} from 'react-hook-form'
 import 'font-awesome/css/font-awesome.min.css';
 import {useHistory} from 'react-router-dom'
+import Select from 'react-select'
 
+  
 const Search = (props) =>{
     const {register, handleSubmit, errors, setValue, getValues} = useForm()
     const history = useHistory()
-    
+
     useEffect(()=>{
         setValue("title", props.savedTitle)
         setValue("author", props.savedAuthor)
@@ -28,8 +30,8 @@ const Search = (props) =>{
         if(data.author){
             pushUrl+=`author=${data.author}&`
         } 
-        if(data.filter && data.filter !== "No filters"){
-            pushUrl+=`filter=${data.filter}&`
+        if(selectedOption && selectedOption !== "No filters"){
+            pushUrl+=`filter=${selectedOption}&`
         } 
         if(data.newestBook){
             pushUrl+=`newestBook=${data.newestBook}&`
@@ -41,6 +43,55 @@ const Search = (props) =>{
         left: `0`,
         color: `#000`,
         fontSize: `16px`
+    }
+
+    //Select
+    const [selectedOption, setSelectedOption] = useState(null)
+    const onSelectChange = (selectedOption)=>{
+        if(selectedOption !== selectedOption.value) setSelectedOption(selectedOption.value)
+    }
+    const options = [
+        { value: 'No filters', label: 'No filters' },
+        { value: 'Free book', label: 'Free book' },
+        { value: 'Paid book', label: 'Paid book' }
+      ]
+
+    const customStyles = {
+    /*option: (provided, state) => ({
+        ...provided,
+        borderBottom: '1px dotted pink',
+        color: state.isSelected ? 'red' : 'blue',
+        padding: 20,
+    }),*/
+    control: (provided, state) => {
+        const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
+        const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
+        return{...provided, boxShadow, borderColor, '&:hover': {
+            borderColor: state.isFocused ? '#c75e70' : '#afafaf'
+          }}
+    },
+    option: (provided, state) => {
+        const fontSize = `14px`
+        const backgroundColor = state.isSelected ? '#5a0f0f' : 'transparent'
+        return{...provided, backgroundColor,fontSize, '&:hover': {
+            backgroundColor: state.isFocused ? '#c75e70' : 'transparent',
+            color: '#fff'
+          }}
+    },
+    menu: (provided) => {
+        const zIndex = `2`
+        return{...provided, zIndex}
+    },
+    singleValue: (provided)=>{
+        const fontSize = `14px`
+        return{...provided, fontSize}
+    }
+    /*singleValue: (provided, state) => {
+        const opacity = state.isDisabled ? 0.5 : 1;
+        const transition = 'opacity 300ms';
+    
+        return { ...provided, opacity, transition };
+    }*/
     }
     return ( 
         <div className="form" >
@@ -61,17 +112,21 @@ const Search = (props) =>{
                 </div> 
 
                 <div className="filters">
-                    <h3>Filters</h3>
+                    <p>Filters</p>
                     <div className="form-select-input">
-                        <select name="filter" ref={register}>
-                            <option>No filters</option>
-                            <option>Free book</option>
-                            <option>Paid book</option>
-                        </select>
+                        <Select 
+                            defaultValue={options.filter(item => item.value === props.savedFilter)[0]}
+                            onChange={onSelectChange}
+                            styles={customStyles}
+                            options={options} 
+                        />
                     </div>
                     <div className="form-checkbox-input">
-                        <input ref={register} type="checkbox" name={"newestBook"} id={"Newest"}/>
-                        <label htmlFor="Newest">Newest</label>
+                        <div className="checkbox">
+                            <input ref={register} type="checkbox" name={"newestBook"} id={"Newest"}/>
+                            <div className="checkbox_background"></div>
+                        </div>
+                        <label htmlFor="Newest">Sort by newest</label>
                     </div> 
                 </div> 
                 <button type="submit">

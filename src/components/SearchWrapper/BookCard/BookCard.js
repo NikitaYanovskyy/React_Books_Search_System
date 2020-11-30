@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {useImage} from '../../../hooks'
+
 const BookCard = (props) =>{
     const bookCategoryColor = props.bookCategory === 'No category' ? `red` : '#5a0f0f'
     return(
@@ -20,7 +21,7 @@ const BookCard = (props) =>{
 
 const BookCardImage = (props) =>{
     const image = useImage(props.src)
-    
+
     const emptyImageStyles = {
         height: `200px`
     }
