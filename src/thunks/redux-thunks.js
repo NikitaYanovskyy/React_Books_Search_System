@@ -12,19 +12,17 @@ export const getBooksThunk = (queryParams) =>{
         try{
             let response = await searchAPI.getBooks(queryParams)
 
-            //Hide Loader
-            dispatch(SetBooksLoaderAC(false))
-            
+            // Get booklist array
+            dispatch(GetBooksAC(response.data.items))
+
             //Get amount of books
             dispatch(GetBooksTotalItemsAC(response.data.totalItems))
             dispatch(SetCurrentPaginagionPageAC(queryParams.currentPaginationPage))
 
-            // Get booklist array
-            dispatch(GetBooksAC(response.data.items))
+            //Hide Loader
+            dispatch(SetBooksLoaderAC(false))
         }catch(error){
             dispatch(GetBooksTotalItemsAC(0))
         }
-
-        
     }
 }

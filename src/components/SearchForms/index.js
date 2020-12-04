@@ -17,7 +17,7 @@ const Search = (props) =>{
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
         // Allow to server request from search wrapper 
-        if(!props.isAllowedToSendRequest) {props.SetIsAllowedToSendRequest(true)}
+        props.SetIsAllowedToSendRequest(true)
 
         // Building url
         let pushUrl = '/React_Books_Search_System/find'
@@ -57,41 +57,29 @@ const Search = (props) =>{
       ]
 
     const customStyles = {
-    /*option: (provided, state) => ({
-        ...provided,
-        borderBottom: '1px dotted pink',
-        color: state.isSelected ? 'red' : 'blue',
-        padding: 20,
-    }),*/
-    control: (provided, state) => {
-        const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
-        const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
-        return{...provided, boxShadow, borderColor, '&:hover': {
-            borderColor: state.isFocused ? '#c75e70' : '#afafaf'
-          }}
-    },
-    option: (provided, state) => {
-        const fontSize = `14px`
-        const backgroundColor = state.isSelected ? '#5a0f0f' : 'transparent'
-        return{...provided, backgroundColor,fontSize, '&:hover': {
-            backgroundColor: state.isFocused ? '#c75e70' : 'transparent',
-            color: '#fff'
-          }}
-    },
-    menu: (provided) => {
-        const zIndex = `2`
-        return{...provided, zIndex}
-    },
-    singleValue: (provided)=>{
-        const fontSize = `14px`
-        return{...provided, fontSize}
-    }
-    /*singleValue: (provided, state) => {
-        const opacity = state.isDisabled ? 0.5 : 1;
-        const transition = 'opacity 300ms';
-    
-        return { ...provided, opacity, transition };
-    }*/
+        control: (provided, state) => {
+            const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
+            const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
+            return{...provided, boxShadow, borderColor, '&:hover': {
+                borderColor: state.isFocused ? '#c75e70' : '#afafaf'
+            }}
+        },
+        option: (provided, state) => {
+            const fontSize = `14px`
+            const backgroundColor = state.isSelected ? '#5a0f0f' : 'transparent'
+            return{...provided, backgroundColor,fontSize, '&:hover': {
+                backgroundColor: state.isFocused ? '#c75e70' : 'transparent',
+                color: '#fff'
+            }}
+        },
+        menu: (provided) => {
+            const zIndex = `2`
+            return{...provided, zIndex}
+        },
+        singleValue: (provided)=>{
+            const fontSize = `14px`
+            return{...provided, fontSize}
+        }
     }
     return ( 
         <div className="form" >
