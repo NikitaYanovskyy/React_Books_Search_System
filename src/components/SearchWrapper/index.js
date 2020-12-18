@@ -31,7 +31,7 @@ const SearchWrapper = (props) =>{
                 props.getBooksThunk(queryParams.current)
             }
         }
-    }/*,[props.isAllowedToSendRequest]*/)
+    })
 
     const showDescription = () =>{
         shortDescriptionRef.current.style.animation = 'short_description_show 0.3s ease-in-out 0s 1 normal forwards'

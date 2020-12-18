@@ -16,10 +16,6 @@ const Search = (props) =>{
         setValue("newestBook", Boolean(props.savedIsNewest) === true ? "checked" : "")
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
-
-        // Allow to server request from search wrapper 
-        props.SetIsAllowedToSendRequest(true)
-
         // Building url
         let pushUrl = '/React_Books_Search_System/find'
         if(data.title || data.author || data.filter || data.newestBook){
@@ -31,13 +27,17 @@ const Search = (props) =>{
         if(data.author){
             pushUrl+=`author=${data.author}&`
         } 
-        if(selectedOption && selectedOption !== "No filters"){
+        if(selectedOption !== "No filters"){
+            alert(selectedOption)
             pushUrl+=`filter=${selectedOption}&`
         } 
         if(data.newestBook){
             pushUrl+=`newestBook=${data.newestBook}&`
         } 
         history.push(pushUrl)
+        
+        // Allow to server request from search wrapper 
+        props.SetIsAllowedToSendRequest(true)
     }
     const labelStyle = {
         top: `-25px`,
@@ -47,23 +47,17 @@ const Search = (props) =>{
     }
 
     //Select
-    const [selectedOption, setSelectedOption] = useState(null)
+    const [selectedOption, setSelectedOption] = useState(props.savedFilter)
     const onSelectChange = (selectedOption)=>{
-        if(selectedOption !== selectedOption.value) setSelectedOption(selectedOption.value)
+        setSelectedOption(selectedOption.value)
     }
     const options = [
-        { value: 'No filters', label: 'No filters' },
-        { value: 'Free book', label: 'Free book' },
-        { value: 'Paid book', label: 'Paid book' }
+        { value: "No filters", label: "No filters" },
+        { value: "Free book", label: "Free book" },
+        { value: "Paid book", label: "Paid book" }
       ]
 
     const customStyles = {
-    /*option: (provided, state) => ({
-        ...provided,
-        borderBottom: '1px dotted pink',
-        color: state.isSelected ? 'red' : 'blue',
-        padding: 20,
-    }),*/
     control: (provided, state) => {
         const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
         const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
@@ -87,12 +81,6 @@ const Search = (props) =>{
         const fontSize = `14px`
         return{...provided, fontSize}
     }
-    /*singleValue: (provided, state) => {
-        const opacity = state.isDisabled ? 0.5 : 1;
-        const transition = 'opacity 300ms';
-    
-        return { ...provided, opacity, transition };
-    }*/
     }
     return ( 
         <div className="form" >

@@ -3,7 +3,7 @@ import {GetBooksAC, GetBooksTotalItemsAC, SetBooksLoaderAC, SetSavedFormValuesAC
 
 export const getBooksThunk = (queryParams) =>{
     return async (dispatch, getState) => {
-        alert(queryParams.title)
+        /*alert(queryParams.title)
         const state = getState();
         let prevQueryParams = {
             title: state.searchBranch.savedTitle,
@@ -12,7 +12,7 @@ export const getBooksThunk = (queryParams) =>{
             newestBook: state.searchBranch.savedIsNewest,
         }
 
-        /*for(let prop in queryParams){
+        for(let prop in queryParams){
             if (queryParams[prop] === prevQueryParams[prop]){
                 isEqual = true
                 break;
