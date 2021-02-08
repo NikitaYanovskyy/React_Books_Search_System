@@ -17,13 +17,9 @@ const Search = (props) =>{
         setValue("newestBook", Boolean(props.savedIsNewest) === true ? "checked" : "")
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
-<<<<<<< HEAD
         // Allow to server request from search wrapper 
         props.SetIsAllowedToSendRequest(true)
 
-=======
-        alert(selectedOption)
->>>>>>> gh-pages
         // Building url
         let pushUrl = '/React_Books_Search_System/find'
         if(data.title || data.author || data.filter || data.newestBook){
@@ -36,7 +32,6 @@ const Search = (props) =>{
             pushUrl+=`author=${data.author}&`
         } 
         if(selectedOption !== "No filters"){
-            alert(selectedOption)
             pushUrl+=`filter=${selectedOption}&`
         } 
         if(data.newestBook){
@@ -56,7 +51,6 @@ const Search = (props) =>{
 
     //Select
     const onSelectChange = (selectedOption)=>{
-        alert(selectedOption.value)
         setSelectedOption(selectedOption.value)
     }
     const options = [
@@ -66,7 +60,6 @@ const Search = (props) =>{
       ]
 
     const customStyles = {
-<<<<<<< HEAD
         control: (provided, state) => {
             const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
             const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
@@ -90,31 +83,6 @@ const Search = (props) =>{
             const fontSize = `14px`
             return{...provided, fontSize}
         }
-=======
-    control: (provided, state) => {
-        const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
-        const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
-        return{...provided, boxShadow, borderColor, '&:hover': {
-            borderColor: state.isFocused ? '#c75e70' : '#afafaf'
-          }}
-    },
-    option: (provided, state) => {
-        const fontSize = `14px`
-        const backgroundColor = state.isSelected ? '#5a0f0f' : 'transparent'
-        return{...provided, backgroundColor,fontSize, '&:hover': {
-            backgroundColor: state.isFocused ? '#c75e70' : 'transparent',
-            color: '#fff'
-          }}
-    },
-    menu: (provided) => {
-        const zIndex = `2`
-        return{...provided, zIndex}
-    },
-    singleValue: (provided)=>{
-        const fontSize = `14px`
-        return{...provided, fontSize}
-    }
->>>>>>> gh-pages
     }
     return ( 
         <div className="form" >

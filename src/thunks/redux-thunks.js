@@ -27,32 +27,18 @@ export const getBooksThunk = (queryParams) =>{
         dispatch(SetBooksLoaderAC(true))
         try{
             let response = await searchAPI.getBooks(queryParams)
-<<<<<<< HEAD
 
             // Get booklist array
             dispatch(GetBooksAC(response.data.items))
 
-=======
->>>>>>> gh-pages
             //Get amount of books
             dispatch(GetBooksTotalItemsAC(response.data.totalItems))
             dispatch(SetCurrentPaginagionPageAC(queryParams.currentPaginationPage))
 
-<<<<<<< HEAD
             //Hide Loader
             dispatch(SetBooksLoaderAC(false))
         }catch(error){
             dispatch(GetBooksTotalItemsAC(0))
         }
-=======
-            // Get booklist array
-            dispatch(GetBooksAC(response.data.items))   
-        }catch(error){
-            dispatch(GetBooksTotalItemsAC(0))
-        }
-
-        //Hide Loader
-        dispatch(SetBooksLoaderAC(false))        
->>>>>>> gh-pages
     }
 }
