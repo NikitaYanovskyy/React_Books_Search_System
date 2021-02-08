@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/React_Books_Search_System/static/css/main.4b7d1995.chunk.css",
+    "main.js": "/React_Books_Search_System/static/js/main.9d497644.chunk.js",
+    "main.js.map": "/React_Books_Search_System/static/js/main.9d497644.chunk.js.map",
+    "runtime-main.js": "/React_Books_Search_System/static/js/runtime-main.bebbab70.js",
+    "runtime-main.js.map": "/React_Books_Search_System/static/js/runtime-main.bebbab70.js.map",
+    "static/css/2.40e7cff3.chunk.css": "/React_Books_Search_System/static/css/2.40e7cff3.chunk.css",
+    "static/js/2.099f9565.chunk.js": "/React_Books_Search_System/static/js/2.099f9565.chunk.js",
+    "static/js/2.099f9565.chunk.js.map": "/React_Books_Search_System/static/js/2.099f9565.chunk.js.map",
+    "index.html": "/React_Books_Search_System/index.html",
+    "precache-manifest.00107728aee7414c6193c703ef169cb2.js": "/React_Books_Search_System/precache-manifest.00107728aee7414c6193c703ef169cb2.js",
+    "service-worker.js": "/React_Books_Search_System/service-worker.js",
+    "static/css/2.40e7cff3.chunk.css.map": "/React_Books_Search_System/static/css/2.40e7cff3.chunk.css.map",
+    "static/css/main.4b7d1995.chunk.css.map": "/React_Books_Search_System/static/css/main.4b7d1995.chunk.css.map",
+    "static/js/2.099f9565.chunk.js.LICENSE.txt": "/React_Books_Search_System/static/js/2.099f9565.chunk.js.LICENSE.txt",
+    "static/media/allStyles.css": "/React_Books_Search_System/static/media/Roboto.5673da52.ttf",
+    "static/media/about.jpg": "/React_Books_Search_System/static/media/about.dc3e90ba.jpg",
+    "static/media/book_background.jpg": "/React_Books_Search_System/static/media/book_background.64ec8545.jpg",
+    "static/media/book_photo_missing_small.jpg": "/React_Books_Search_System/static/media/book_photo_missing_small.e01e82d3.jpg",
+    "static/media/firstVisit.jpg": "/React_Books_Search_System/static/media/firstVisit.83038eaf.jpg",
+    "static/media/font-awesome.min.css": "/React_Books_Search_System/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/noResults.jpg": "/React_Books_Search_System/static/media/noResults.9184fca1.jpg",
+    "static/media/not-found.jpg": "/React_Books_Search_System/static/media/not-found.a46bd9f4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bebbab70.js",
+    "static/css/2.40e7cff3.chunk.css",
+    "static/js/2.099f9565.chunk.js",
+    "static/css/main.4b7d1995.chunk.css",
+    "static/js/main.9d497644.chunk.js"
+  ]
+}
