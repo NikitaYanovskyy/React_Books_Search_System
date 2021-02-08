@@ -1135,7 +1135,7 @@
   width: 90px;
 }
 
-.book_card_preloader_bg.price_button {
+.book_card_preloader_bg.book_prise {
   height: 40px;
   width: 80px;
 }
@@ -1178,7 +1178,7 @@
   .book_card_preloader_bg.pages {
     width: 45px;
   }
-  .book_card_preloader_bg.price_button {
+  .book_card_preloader_bg.book_prise {
     height: 40px;
     width: 70px;
   }
@@ -1239,12 +1239,11 @@
   color: #5a0f0f;
 }
 
-.price_button {
+.book_price {
+  text-align: center;
   font-size: 16px;
-  cursor: pointer;
   border: none;
-  color: #fff;
-  background-color: #c75e70;
+  background-color: whitesmoke !important;
   padding: 12px 10px;
 }
 

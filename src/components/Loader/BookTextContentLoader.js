@@ -15,7 +15,7 @@ export const BookTextContentLoader = () =>{
                     <div className="book_card_preloader_bg language regular_text book_card_item_margin"></div>
                     <div className="book_card_preloader_bg maturity_rating regular_text book_card_item_margin"></div>
                     <div className="book_card_preloader_bg pages regular_text book_card_item_margin"></div>
-                    <div className="book_card_preloader_bg price_button book_card_item_margin"></div>
+                    <div className="book_card_preloader_bg book_price book_card_item_margin"></div>
                 </div>
                 <div>
                     <div className="book_card_preloader_bg country margin_left regular_text book_card_item_margin"></div>

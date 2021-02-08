@@ -31,9 +31,9 @@ export const BookTextContent = (props) =>{
                         <p>Pages: </p>
                         <strong>{processPages(props.volumeInfo)}</strong>   
                     </div>
-                    <button className="book_card_item_margin price_button">
+                    <div className="book_card_item_margin book_price">
                         {processPrice(props.saleInfo)}  
-                    </button>
+                    </div>
                 </div>
                 <div>
                     <div className="margin_left book_card_item_margin">

@@ -8,6 +8,7 @@ import Select from 'react-select'
 const Search = (props) =>{
     const {register, handleSubmit, errors, setValue, getValues} = useForm()
     const history = useHistory()
+    const [selectedOption, setSelectedOption] = useState(props.savedFilter)
 
     useEffect(()=>{
         setValue("title", props.savedTitle)
@@ -16,6 +17,7 @@ const Search = (props) =>{
         setValue("newestBook", Boolean(props.savedIsNewest) === true ? "checked" : "")
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
+        alert(selectedOption)
         // Building url
         let pushUrl = '/React_Books_Search_System/find'
         if(data.title || data.author || data.filter || data.newestBook){
@@ -47,8 +49,8 @@ const Search = (props) =>{
     }
 
     //Select
-    const [selectedOption, setSelectedOption] = useState(props.savedFilter)
     const onSelectChange = (selectedOption)=>{
+        alert(selectedOption.value)
         setSelectedOption(selectedOption.value)
     }
     const options = [
@@ -103,7 +105,7 @@ const Search = (props) =>{
                 <div className="filters">
                     <p>Filters</p>
                     <div className="form-select-input">
-                        <Select 
+                        <Select
                             defaultValue={options.filter(item => item.value === props.savedFilter)[0]}
                             onChange={onSelectChange}
                             styles={customStyles}

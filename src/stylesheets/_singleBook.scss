@@ -42,12 +42,11 @@
         color: $darkPink;
     }
 }
-.price_button{
+.book_price{
+    text-align: center;
     font-size: 16px;
-    cursor: pointer;
     border: none;
-    color: #fff;
-    background-color: $lightPink;
+    background-color: rgb(245, 245, 245) !important;
     padding: 12px 10px;
 }
 
