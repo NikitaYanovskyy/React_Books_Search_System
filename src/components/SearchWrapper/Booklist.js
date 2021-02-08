@@ -45,8 +45,7 @@ const Booklist = (props) =>{
                     })
                     }
                 </div>
-            </div>
-            
+            </div> 
         ) 
     } 
 }

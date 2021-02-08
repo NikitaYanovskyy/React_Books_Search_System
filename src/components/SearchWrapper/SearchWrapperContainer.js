@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 
 const mapStateToProps = (state)=>(
     {
-        isAllowedToSendRequest: state.searchBranch.isAllowedToSendRequest
+        isAllowedToSendRequest: state.searchBranch.isAllowedToSendRequest,
+        savedFilter: state.searchBranch.savedFilter
     }
 )
 

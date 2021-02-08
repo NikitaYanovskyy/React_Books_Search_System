@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import axios from 'axios'
 import ShortDescription from './ShortDescription'
 import Search from '../SearchForms/SearchContainer'
@@ -19,15 +19,16 @@ const SearchWrapper = (props) =>{
     let query = useQuery()
     const location = useLocation()
     const shortDescriptionRef = React.useRef(null)
-    let queryParams = {}
+    
+    const queryParams = useRef({})
     useEffect(()=>{
-        queryParams.title = setQueryParam(query.get(`q`))
-        queryParams.author = setQueryParam(query.get(`author`))
-        queryParams.filter = setQueryParam(query.get(`filter`))
-        queryParams.newestBook = setQueryParam(query.get(`newestBook`))
+        queryParams.current.title = setQueryParam(query.get(`q`))
+        queryParams.current.author = setQueryParam(query.get(`author`))
+        queryParams.current.filter = setQueryParam(query.get(`filter`))
+        queryParams.current.newestBook = setQueryParam(query.get(`newestBook`))
         if(props.isAllowedToSendRequest){
             if(location.search !== ""){
-                props.getBooksThunk(queryParams)
+                props.getBooksThunk(queryParams.current)
             }
         }
     })
@@ -49,8 +50,8 @@ const SearchWrapper = (props) =>{
                             <SearchNavbarContainer showDescription={showDescription}/>
                             <Route path='/React_Books_Search_System/' component={withProvideSearchWithStore(Search)}/>
 
-                            <Paginator queryParams={queryParams}/>
-                            <BooklistContainer queryParams={queryParams}/>
+                            <Paginator queryParams={queryParams.current}/>
+                            <BooklistContainer />
                         </div>
 
                         <ShortDescription 

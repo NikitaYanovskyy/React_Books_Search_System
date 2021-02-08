@@ -8,6 +8,7 @@ import Select from 'react-select'
 const Search = (props) =>{
     const {register, handleSubmit, errors, setValue, getValues} = useForm()
     const history = useHistory()
+    const [selectedOption, setSelectedOption] = useState(props.savedFilter)
 
     useEffect(()=>{
         setValue("title", props.savedTitle)
@@ -16,9 +17,13 @@ const Search = (props) =>{
         setValue("newestBook", Boolean(props.savedIsNewest) === true ? "checked" : "")
     },[props.savedTitle,props.savedAuthor,props.savedFilter,props.savedIsNewest])
     const onSubmit = (data)=>{
+<<<<<<< HEAD
         // Allow to server request from search wrapper 
         props.SetIsAllowedToSendRequest(true)
 
+=======
+        alert(selectedOption)
+>>>>>>> gh-pages
         // Building url
         let pushUrl = '/React_Books_Search_System/find'
         if(data.title || data.author || data.filter || data.newestBook){
@@ -30,13 +35,17 @@ const Search = (props) =>{
         if(data.author){
             pushUrl+=`author=${data.author}&`
         } 
-        if(selectedOption && selectedOption !== "No filters"){
+        if(selectedOption !== "No filters"){
+            alert(selectedOption)
             pushUrl+=`filter=${selectedOption}&`
         } 
         if(data.newestBook){
             pushUrl+=`newestBook=${data.newestBook}&`
         } 
         history.push(pushUrl)
+        
+        // Allow to server request from search wrapper 
+        props.SetIsAllowedToSendRequest(true)
     }
     const labelStyle = {
         top: `-25px`,
@@ -46,17 +55,18 @@ const Search = (props) =>{
     }
 
     //Select
-    const [selectedOption, setSelectedOption] = useState(null)
     const onSelectChange = (selectedOption)=>{
-        if(selectedOption !== selectedOption.value) setSelectedOption(selectedOption.value)
+        alert(selectedOption.value)
+        setSelectedOption(selectedOption.value)
     }
     const options = [
-        { value: 'No filters', label: 'No filters' },
-        { value: 'Free book', label: 'Free book' },
-        { value: 'Paid book', label: 'Paid book' }
+        { value: "No filters", label: "No filters" },
+        { value: "Free book", label: "Free book" },
+        { value: "Paid book", label: "Paid book" }
       ]
 
     const customStyles = {
+<<<<<<< HEAD
         control: (provided, state) => {
             const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
             const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
@@ -80,6 +90,31 @@ const Search = (props) =>{
             const fontSize = `14px`
             return{...provided, fontSize}
         }
+=======
+    control: (provided, state) => {
+        const boxShadow = state.isFocused ? `0 0 0 1px #c75e70` : `none` 
+        const borderColor = state.isFocused ? `#c75e70` : `#d6d4d4` 
+        return{...provided, boxShadow, borderColor, '&:hover': {
+            borderColor: state.isFocused ? '#c75e70' : '#afafaf'
+          }}
+    },
+    option: (provided, state) => {
+        const fontSize = `14px`
+        const backgroundColor = state.isSelected ? '#5a0f0f' : 'transparent'
+        return{...provided, backgroundColor,fontSize, '&:hover': {
+            backgroundColor: state.isFocused ? '#c75e70' : 'transparent',
+            color: '#fff'
+          }}
+    },
+    menu: (provided) => {
+        const zIndex = `2`
+        return{...provided, zIndex}
+    },
+    singleValue: (provided)=>{
+        const fontSize = `14px`
+        return{...provided, fontSize}
+    }
+>>>>>>> gh-pages
     }
     return ( 
         <div className="form" >
@@ -102,7 +137,7 @@ const Search = (props) =>{
                 <div className="filters">
                     <p>Filters</p>
                     <div className="form-select-input">
-                        <Select 
+                        <Select
                             defaultValue={options.filter(item => item.value === props.savedFilter)[0]}
                             onChange={onSelectChange}
                             styles={customStyles}
